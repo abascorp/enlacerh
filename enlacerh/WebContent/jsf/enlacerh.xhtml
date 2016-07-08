@@ -1,0 +1,241 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- 
+     Copyright (C) 2011  ANDRES DOMINGUEZ
+
+    Este programa es software libre: usted puede redistribuirlo y/o modificarlo 
+    bajo los tÃ©rminos de la Licencia PÃºblica General GNU publicada 
+    por la FundaciÃ³n para el Software Libre, ya sea la versiÃ³n 3 
+    de la Licencia, o (a su elecciÃ³n) cualquier versiÃ³n posterior.
+
+    Este programa se distribuye con la esperanza de que sea Ãºtil, pero 
+    SIN GARANTÃ�A ALGUNA; ni siquiera la garantÃ­a implÃ­cita 
+    MERCANTIL o de APTITUD PARA UN PROPÃ“SITO DETERMINADO. 
+    Consulte los detalles de la Licencia PÃºblica General GNU para obtener 
+    una informaciÃ³n mÃ¡s detallada. 
+
+    DeberÃ­a haber recibido una copia de la Licencia PÃºblica General GNU 
+    junto a este programa. 
+    En caso contrario, consulte <http://www.gnu.org/licenses/>.
+ -->
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:p="http://primefaces.org/ui">
+<!-- Morris -->
+<ui:include src="common/cabeceras.xhtml" />
+<ui:include src="common/timeout.xhtml" />
+<h:body onload="modal('#{smnubean.admin}');">
+	<f:view>
+
+		<!-- Top-->
+		<ui:include src="common/top.xhtml" />
+		<f:metadata>
+       <f:event type="preRenderView" listener="#{smnubean.valmail}"/>
+        </f:metadata>
+
+		<div id="wrapper">
+			<!-- Sidebar -->
+			<ui:include src="common/menu.xhtml" />
+			<!-- Menu Toggle Script -->
+			<!-- /#sidebar-wrapper -->
+
+			<!-- Page Content -->
+			<div class="container-fluid" id="containerF">
+				<h:form id="formDashBoard">
+					<div class="row">
+						<div class="col-lg-12">
+							<h1 class="page-header" style="margin-top: -13px">
+								Bienvenido: <small>#{loginBean.getLogged()}</small>
+							</h1>
+							<ol class="breadcrumb">
+								<li class="active"><i class="fa fa-dashboard"></i>
+									&nbsp; &nbsp;#{msg.auto01}</li>
+							</ol>
+						</div>
+				<a href="autos02.xhtml">
+				  <div class="col-lg-4 col-md-6" style="display: #{smnubean.display1}">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-credit-card	 fa-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div>#{msg.dasboard1}</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                            <div class="panel-footer">
+                                <span class="pull-left">#{msg.html44}</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
+                            </div>
+                        
+                    </div>
+                </div></a>
+                <a href="autos03.xhtml">
+                 <div class="col-lg-4 col-md-6" style="display: #{smnubean.display2}">
+                    <div class="panel panel-green">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-smile-o fa-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div>#{msg.dasboard2}</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                            <div class="panel-footer">
+                                <span class="pull-left">#{msg.html44}</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
+                            </div>                     
+                    </div>
+                </div>
+                 </a>
+                 <a href="autos04.xhtml">
+                 <div class="col-lg-4 col-md-6" style="display: #{smnubean.display3}">
+                    <div class="panel panel-yellow">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-tachometer fa-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div>#{msg.dasboard3}</div>
+                                </div>
+                            </div>
+                        </div>                        
+                            <div class="panel-footer">
+                                <span class="pull-left">#{msg.html44}</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
+                            </div>                       
+                    </div>
+                </div>
+                </a>
+                <a href="autos05.xhtml">
+               <div class="col-lg-4 col-md-6" style="display: #{smnubean.display4}">
+                    <div class="panel panel-danger">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-superscript fa-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div>#{msg.dasboard4}</div>
+                                </div>
+                            </div>
+                        </div>                       
+                            <div class="panel-footer">
+                                <span class="pull-left">#{msg.html44}</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
+                            </div>                      
+                    </div>
+                </div>
+                 </a>
+                 <a href="autos06.xhtml">
+                <div class="col-lg-4 col-md-6" style="display: #{smnubean.display5}">
+                    <div class="panel panel-warning">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-list-ol fa-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div>#{msg.dasboard5}</div>
+                                </div>
+                            </div>
+                        </div>                       
+                            <div class="panel-footer">
+                                <span class="pull-left">#{msg.html44}</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
+                            </div>                       
+                    </div>
+                </div>
+                 </a>
+                  <a href="autos07.xhtml">
+                <div class="col-lg-4 col-md-6" style="display: #{smnubean.display6}">
+                    <div class="panel panel-red">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-thumbs-up fa-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div>#{msg.dasboard6}</div>
+                                </div>
+                            </div>
+                        </div>                      
+                            <div class="panel-footer">
+                                <span class="pull-left">#{msg.html44}</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
+                            </div>                       
+                    </div>
+                </div>
+                </a>
+                
+                  <a href="autos10.xhtml">
+                <div class="col-lg-4 col-md-6" style="display: #{smnubean.display7}">
+                    <div class="panel panel-green">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-bar-chart fa-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div>#{msg.dasboard7}</div>
+                                </div>
+                            </div>
+                        </div>                      
+                            <div class="panel-footer">
+                                <span class="pull-left">#{msg.html44}</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
+                            </div>                       
+                    </div>
+                </div>
+                </a>                
+                
+			</div>                
+		</h:form>
+			</div>
+			
+			<!-- Modal  -->
+					<div class="modal fade" id="myModal" tabindex="-1" role="dialog" data-backdrop="static"  data-keyboard="false"
+						aria-labelledby="myModalLabel" aria-hidden="false">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h4 class="modal-title" id="myModalLabel">#{msg.sessionInst}</h4>
+								</div>
+								<div class="modal-body">
+									<div class="list-group">
+										<ui:repeat var="i"  value="#{smnubean.select()}">
+                                            <p:commandLink styleClass="list-group-item" actionListener="#{smnubean.grupos(i)}"  oncomplete="dismissModal();">
+                                              <span class="detalleTarea">#{i}</span>
+                                             <span class="badge"><h:graphicImage value="../resources/img/seleccionar.png"  alt="Menu"  styleClass="imagenIndex"  /></span>
+											</p:commandLink>
+                                        </ui:repeat>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+
+		</div>
+		<!-- /#wrapper -->
+	</f:view>
+</h:body>
+</html>

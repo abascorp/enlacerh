@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!-- 
+     Copyright (C) 2011  ANDRES DOMINGUEZ
+
+    Este programa es software libre: usted puede redistribuirlo y/o modificarlo 
+    bajo los términos de la Licencia Pública General GNU publicada 
+    por la Fundación para el Software Libre, ya sea la versión 3 
+    de la Licencia, o (a su elección) cualquier versión posterior.
+
+    Este programa se distribuye con la esperanza de que sea útil, pero 
+    SIN GARANTÍA ALGUNA; ni siquiera la garantía implícita 
+    MERCANTIL o de APTITUD PARA UN PROPÓSITO DETERMINADO. 
+    Consulte los detalles de la Licencia Pública General GNU para obtener 
+    una información más detallada. 
+
+    Debería haber recibido una copia de la Licencia Pública General GNU 
+    junto a este programa. 
+    En caso contrario, consulte <http://www.gnu.org/licenses/>.
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<script src="../resources/js/cia.js" type="text/javascript"></script>
+<ui:include src="common/cabeceras.xhtml" />
+<ui:include src="common/timeout.xhtml" />
+<h:body>
+<f:view>
+ <!-- Top-->
+	<ui:include src="common/top.xhtml" />
+   <div id="wrapper">
+	<!-- Menú-->
+	<ui:include src="common/menu.xhtml" />
+	
+
+	 <div class="container-fluid" id="containerF">
+	<h:form id="formCia">
+
+<!--
+               
+        <p:dataGrid var="tb" value="#{cia.list}" columns="4" layout="grid"
+        paginator="true" paginatorAlwaysVisible="false" rows="10" rowsPerPageTemplate="5,10,15,20,50,100,500" paginatorPosition="top"
+		paginatorTemplate="{FirstPageLink} {PreviousPageLink} &#160;&#160; {NextPageLink} {LastPageLink} {RowsPerPageDropdown} {CurrentPageReport}"
+		  currentPageReportTemplate=" {currentPage} - {totalPages} #{msg.html28} {totalRecords}" >-->
+ 
+        <f:facet name="header">
+            #{msg.cianom1}
+        </f:facet>
+ 
+        <p:panel header="#{tb.compania}&nbsp;-&nbsp;#{tb.descodcia}">
+            <h:panelGrid columns="2">
+            <p:commandLink   title="#{msg.siguiente}"   
+            actionListener="#{cia.href('autoext')}"
+            action="#{cia.setCiaSelected(tb.compania, tb.descodcia)}">
+            <center>
+            #{msg.html48}
+            <i class="fa fa-share-square fa-2x"></i>
+            </center>            
+            </p:commandLink>
+            </h:panelGrid>
+        </p:panel>
+ 
+    </p:dataGrid>
+   
+         </h:form>
+   </div>
+    
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+   </f:view>
+</h:body>
+</html>

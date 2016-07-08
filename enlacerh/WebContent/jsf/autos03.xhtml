@@ -1,0 +1,197 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!-- 
+     Copyright (C) 2011  ANDRES DOMINGUEZ
+
+    Este programa es software libre: usted puede redistribuirlo y/o modificarlo 
+    bajo los tÃ©rminos de la Licencia PÃºblica General GNU publicada 
+    por la FundaciÃ³n para el Software Libre, ya sea la versiÃ³n 3 
+    de la Licencia, o (a su elecciÃ³n) cualquier versiÃ³n posterior.
+
+    Este programa se distribuye con la esperanza de que sea Ãºtil, pero 
+    SIN GARANTÃ�A ALGUNA; ni siquiera la garantÃ­a implÃ­cita 
+    MERCANTIL o de APTITUD PARA UN PROPÃ“SITO DETERMINADO. 
+    Consulte los detalles de la Licencia PÃºblica General GNU para obtener 
+    una informaciÃ³n mÃ¡s detallada. 
+
+    DeberÃ­a haber recibido una copia de la Licencia PÃºblica General GNU 
+    junto a este programa. 
+    En caso contrario, consulte <http://www.gnu.org/licenses/>.
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<script src="../resources/js/autos03.js" type="text/javascript"></script>
+<ui:include src="common/cabeceras.xhtml" />
+<ui:include src="common/timeout.xhtml" />
+<h:body>
+<f:view>
+ <!-- Top-->
+   <ui:include src="common/top.xhtml" />
+   <div id="wrapper">
+	<!-- MenÃº-->
+	<ui:include src="common/menu.xhtml" />
+	 <div class="container-fluid" id="containerF">
+	     <h:form id="formAutoSVacacion">
+           <!-- Div para colocar botones -->
+				<div id="botones">              
+				<p:toolbar>  
+                 <f:facet name="left"> 
+                  <p:commandButton id="btnBus" icon="fa fa-search" title="#{msg.htmlb}" styleClass="botonUn" accesskey="b" update="tbResult, growl"
+                  value="#{msg.html49}" />
+                  <p:commandButton icon="fa fa-refresh" styleClass="botonUn" update="tbResult, growl, panelBusqueda" process="@this"  
+                title="#{msg.htmlr}"    accesskey="l" >  
+                 <p:resetInput target="panelBusqueda" /> 
+                 </p:commandButton>                          
+                 </f:facet>   
+                </p:toolbar>  
+				</div><br/>
+				
+			 <!-- Mensaje e imagen --> 		
+			      <div id="encabezados">   
+				  <p:growl globalOnly="true" id="growl" life="30000"/>
+				  <ui:include src="common/loader.xhtml"/>
+				  </div> 
+				
+			<!-- Panel -->
+			 <div class="panel panel-default" style="margin-top: 15px; margin-bottom: 10px">
+		     <div class="panel-body">
+			<p:panel id="panelBusqueda" style="white-space: normal;" header="#{msg.autovactit}" toggleable="true"  toggleSpeed="500" >
+            <h:panelGrid  columns="1" >	         
+			     <p:inputText id="anio" placeholder="#{msg.autoonomAnio}"  style="height: 45px;" styleClass="form-control" maxlength="4"  value="#{autos03.anio}"/>  
+			     <p:inputText id="codcto" placeholder="#{msg.autovacCto}" style="height: 45px;" styleClass="form-control" value="#{autos03.codcto}"   maxlength="4"/> 
+		    </h:panelGrid>  
+		     <f:facet name="footer">		    
+		    <h:outputLabel value="#{autos03.nombre1}&nbsp;#{autos03.apell1}" styleClass="tituloCia"/>
+		    &nbsp;
+		   <p:commandLink icon="ui-icon-newwin" styleClass="btn btn-info"  immediate="true" title="#{msg.autonomDatos}"
+            onclick="$('#myModal').modal('show')"  >
+            <i class="fa fa-bars fa-2x"></i>
+            </p:commandLink>
+	        </f:facet>       
+           </p:panel><br/>
+             
+                      
+                    <!-- Modal Indice ciclo 1-->
+	<div class="modal fade modal-wide" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+
+	      <div class="modal-body">
+	      <div class="panel panel-info">
+	      <div class="panel-heading">#{msg.autonomDatos}</div>
+	       <div class="container-fluid">
+	       <div class="panel-body">
+	       <div class="row">
+	        <div class="col-md-3"><img src="#{autos02.imagen()}" class="img-rounded" title="#{msg.autonomImg}"  alt="user" width="180" height="200" onclick="upload();" ondblclick="uploadC();"/></div>
+	        <div class="col-md-3" style="font-weight: bold;">#{msg.autonomCia}</div>
+	        <div class="col-md-6" >#{autos03.codcia}</div>
+	        <div class="col-md-3" style="font-weight: bold;">#{msg.autonomNom}</div>
+	        <div class="col-md-6" >#{autos03.ptipnom}</div>
+	        <div class="col-md-3" style="font-weight: bold;">#{msg.autonomFictra}</div>
+	        <div class="col-md-6" >#{autos03.pfictra}</div>
+	        <div class="col-md-3" style="font-weight: bold;">#{msg.autonomApell}</div>
+	        <div class="col-md-6" >#{autos03.apell1}</div>
+	        <div class="col-md-3" style="font-weight: bold;">#{msg.autonomNbr}</div>
+	        <div class="col-md-6" >#{autos03.nombre1}</div>
+	        <div class="col-md-3" style="font-weight: bold;">#{msg.autonomIng}</div>
+	        <div class="col-md-6" >#{autos03.fecing}</div>
+	        <div class="col-md-3" style="font-weight: bold;">#{msg.autonomSueld}</div>
+	        <div class="col-md-6" >#{autos03.sueld1}</div>
+	        <div class="col-md-3" style="font-weight: bold;">#{msg.autonomCgo}</div>
+	        <div class="col-md-6" >#{autos03.pcodcar}</div>
+	        <div class="col-md-3" style="font-weight: bold;">#{msg.autonomLoc}</div>
+	        <div class="col-md-6" >#{autos03.pcodloc}</div>
+	        <div class="col-md-3" style="font-weight: bold;">#{msg.autonomSuc}</div>
+	        <div class="col-md-6" >#{autos03.pcodsuc}</div>
+	        <div class="col-md-3" style="font-weight: bold;">#{msg.autonomUni}</div>
+	        <div class="col-md-6" >#{autos03.pcoduni}</div>
+	        <div class="col-md-3" style="font-weight: bold;">#{msg.autonomDep}</div>
+	        <div class="col-md-6" >#{autos03.pcoddep}</div>
+	        </div>	<br/>
+	        <div id="upload" style="display: none;margin-bottom: 10px">                
+           <p:fileUpload fileUploadListener="#{fileUploadController.handleImageUpload}"
+            mode="advanced"
+            update="growl" 
+            cancelLabel="#{msg.autos02Cancel}" 
+            label="#{msg.autos02Sel}"
+            uploadLabel="#{msg.autos02Up}">
+            <f:attribute name="coduser" value="#{loginBean.logged}" />	
+            </p:fileUpload>
+            </div>    
+		  </div>
+		  </div>
+	      </div>
+
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-info" data-dismiss="modal">#{msg.aceC}</button>
+	       </div>
+	    </div>
+	  </div>
+	 </div>    
+
+           
+             </div>
+           </div>
+           
+           <!-- Tabla con el resultado -->		
+			<p:dataTable id="tbResult" styleClass="table table-striped" emptyMessage="#{msg.result}" var="tb"  value="#{autos03.lazyModel}" lazy="true" sortBy="#{tb.vanio}"
+			paginator="true" paginatorAlwaysVisible="false" rows="15" rowsPerPageTemplate="5,10,15,20,50,100,500" paginatorPosition="top"
+			paginatorTemplate="{FirstPageLink} {PreviousPageLink} &#160;&#160; {NextPageLink} {LastPageLink} {RowsPerPageDropdown} {CurrentPageReport}"
+			currentPageReportTemplate=" {currentPage} - {totalPages} #{msg.html28} {totalRecords} "  reflow="true"
+			widgetVar="global">
+			
+			<f:facet name="header"> 			
+            <p:outputPanel>  
+                <h:outputText value="#{msg.htmlb}" />&#160;&#160;  
+                <p:inputText id="globalFilter" onkeyup="PF('global').filter()"  style="width:150px;" /> 
+                <p:watermark for="globalFilter" value="#{msg.html29}" /> &#160;&#160;
+                <p:commandButton  title="#{msg.html10}"  icon="fa fa-print" value="#{msg.html50}" styleClass="botonPag" accesskey="p" 
+			onclick="imprimirRecibo('#{autos03.pcodcia}AUTOVAC','#{autos03.pfictra}','#{autos03.codcto}','#{autos03.anio}');"/>						
+               &#160;&#160;
+                <p:commandButton id="toggler" type="button"  style="float:right" icon="fa fa-calculator" />
+                <p:columnToggler datasource="tbResult" trigger="toggler" />
+            </p:outputPanel>         
+            </f:facet> 
+
+            
+            <p:column sortBy="#{tb.vanio}" styleClass="wrap" style="width:70px">  
+            <f:facet name="header">#{msg.autovactbAnio}  </f:facet> 
+            <h:outputLabel value="#{tb.vanio}" />  
+            </p:column>  
+            
+            <p:column styleClass="wrap" style="width:100px">  
+            <f:facet name="header">#{msg.autovactbFecha}</f:facet> 
+            <h:outputLabel value="#{tb.vfecha}" />  
+            </p:column>  
+            
+            <p:column styleClass="wrap" style="width:70px">  
+            <f:facet name="header">#{msg.autovactbCodigo}</f:facet> 
+            <h:outputLabel value="#{tb.vcodcto}" />  
+            </p:column> 
+            
+            <p:column styleClass="wrap">  
+            <f:facet name="header">#{msg.autovactbCto}</f:facet> 
+            <h:outputLabel  value="#{tb.vdescto}" />  
+            </p:column>   
+            
+            <p:column styleClass="wrap">  
+            <f:facet name="header">#{msg.autovactbCaven}</f:facet> 
+            <center><h:outputLabel style="font-weight:bold;" value="#{tb.vcanven}" /></center>  
+            </p:column>  
+            
+                         
+            </p:dataTable>   
+       </h:form>
+   </div>
+    
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+   </f:view>
+</h:body>
+</html>

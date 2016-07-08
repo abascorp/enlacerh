@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jlic-web-app>
+ 
+<!-- URL de verificación-->
+   <load-url>
+    <load-url-verificacion>http://opennomina.ecorrespondencia.com/opennomina/validar_cuenta.xhtml</load-url-verificacion>
+  </load-url>           
+</jlic-web-app>

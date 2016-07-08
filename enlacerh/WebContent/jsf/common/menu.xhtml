@@ -1,0 +1,85 @@
+
+<!-- 
+     Copyright (C) 2011  ANDRES DOMINGUEZ
+
+    Este programa es software libre: usted puede redistribuirlo y/o modificarlo 
+    bajo los tÃ©rminos de la Licencia PÃºblica General GNU publicada 
+    por la FundaciÃ³n para el Software Libre, ya sea la versiÃ³n 3 
+    de la Licencia, o (a su elecciÃ³n) cualquier versiÃ³n posterior.
+
+    Este programa se distribuye con la esperanza de que sea Ãºtil, pero 
+    SIN GARANTÃ�A ALGUNA; ni siquiera la garantÃ­a implÃ­cita 
+    MERCANTIL o de APTITUD PARA UN PROPÃ“SITO DETERMINADO. 
+    Consulte los detalles de la Licencia PÃºblica General GNU para obtener 
+    una informaciÃ³n mÃ¡s detallada. 
+
+    DeberÃ­a haber recibido una copia de la Licencia PÃºblica General GNU 
+    junto a este programa. 
+    En caso contrario, consulte <http://www.gnu.org/licenses/>.
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<div id="sidebar-wrapper">
+	<ul class="sidebar-nav">
+		<!-- Home -->
+		<li id="current" class="active"><h:outputLink
+				value="enlacerh.xhtml">
+				<i class="fa fa-home fa-2x"></i>
+				<span class="mnuLeftBasicos">EnlaceRH - Inicio</span>
+			</h:outputLink></li>
+
+		<!-- MenÃº AdministraciÃ³n -->
+		<h:outputLink  rendered="#{smnubean.bas}"><li><a href="javascript:;" data-toggle="collapse"
+			data-target="#admin"><i class="fa fa-database fa-fw"></i>&nbsp;&nbsp;#{msg.bas}
+			<i class="fa fa-fw fa-caret-down pull-right" style="margin-top: 15px; margin-right: 15px"></i></a>
+			<ul id="admin" class="collapse" style="margin-left: -30px">
+			    <h:outputLink value="pnt003.xhtml" rendered="#{smnubean.bas01}"><li>#{msg.bas01}</li></h:outputLink>			
+				<h:outputLink value="pnt004.xhtml" rendered="#{smnubean.bas02}"><li>#{msg.bas02}</li></h:outputLink>
+				<h:outputLink value="pnt001.xhtml" rendered="#{smnubean.bas03}"><li>#{msg.bas03}</li></h:outputLink>
+				<h:outputLink value="autos01a.xhtml" rendered="#{smnubean.bas05}"><li>#{msg.bas05}</li></h:outputLink>
+			</ul></li></h:outputLink>
+
+
+		<!-- Seguridad -->
+		<h:outputLink  rendered="#{smnubean.seg}"><li><a href="javascript:;" data-toggle="collapse"
+			data-target="#seg"><i class="fa fa-lock fa-fw"></i>&nbsp;&nbsp;#{msg.seg}
+				<i class="fa fa-fw fa-caret-down pull-right" style="margin-top: 15px; margin-right: 15px"></i></a>
+			<ul id="seg" class="collapse" style="margin-left: -30px">
+				<h:outputLink  value="seg001.xhtml" rendered="#{smnubean.grupos()}"><li>#{msg.seg01}</li></h:outputLink>
+				<h:outputLink  value="seg002.xhtml" rendered="#{smnubean.seg02}"><li>#{msg.seg02}</li></h:outputLink>
+				<h:outputLink  value="seg006.xhtml" rendered="#{smnubean.seg03}"><li>#{msg.seg03}</li></h:outputLink>
+				<h:outputLink  value="seg007.xhtml" rendered="#{smnubean.seg04}"><li>#{msg.seg05}</li></h:outputLink>
+				<h:outputLink  value="seg010.xhtml" rendered="#{smnubean.seg05}"><li>#{msg.seg06}</li></h:outputLink>
+				<h:outputLink  value="autos01.xhtml" rendered="#{smnubean.seg06}"><li>#{msg.seg07}</li></h:outputLink>
+			</ul></li></h:outputLink>
+
+		<!-- Autoservicio -->
+		<li><h:outputLink  value="cia.xhtml" rendered="#{smnubean.bas04}"><i class="fa fa-cogs fa-fw"></i>&nbsp;&nbsp;#{msg.bas04}</h:outputLink></li>
+		
+		<li><h:outputLink  value="autos02.xhtml" rendered="#{smnubean.autos02}"><i class="fa fa-money fa-fw"></i>&nbsp;&nbsp;#{msg.auto02}</h:outputLink></li>
+		
+		<li><h:outputLink  value="autos03.xhtml" rendered="#{smnubean.autos03}"><i class="fa fa-smile-o fa-fw"></i>&nbsp;&nbsp;#{msg.auto03}</h:outputLink></li>
+		
+		<li><h:outputLink  value="autos04.xhtml" rendered="#{smnubean.autos04}"><i class="fa fa-tachometer fa-fw"></i>&nbsp;&nbsp;#{msg.auto04}</h:outputLink></li>
+		
+		<li><h:outputLink  value="autos05.xhtml" rendered="#{smnubean.autos05}"><i class="fa fa-superscript fa-fw"></i>&nbsp;&nbsp;#{msg.auto05}</h:outputLink></li>
+		
+		<li><h:outputLink  value="autos06.xhtml" rendered="#{smnubean.autos06}"><i class="fa fa-list-ol fa-fw"></i>&nbsp;&nbsp;#{msg.auto06}</h:outputLink></li>
+		
+		<li><h:outputLink  value="autos07.xhtml" rendered="#{smnubean.autos07}"><i class="fa fa-thumbs-up fa-fw"></i>&nbsp;&nbsp;#{msg.auto07}</h:outputLink></li>
+		
+		<li><h:outputLink  value="autos10.xhtml" rendered="#{smnubean.autos10}"><i class="fa fa-thumbs-up fa-fw"></i>&nbsp;&nbsp;#{msg.auto10}</h:outputLink></li>
+	</ul>
+</div>
+<script>
+	$("#menu-toggle").click(function(e) {
+		e.preventDefault();
+		$("#wrapper").toggleClass("toggled");
+	});
+</script>
+</html>

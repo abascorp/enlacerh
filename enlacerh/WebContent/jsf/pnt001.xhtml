@@ -1,0 +1,180 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!-- 
+     Copyright (C) 2011  ANDRES DOMINGUEZ
+
+    Este programa es software libre: usted puede redistribuirlo y/o modificarlo 
+    bajo los términos de la Licencia Pública General GNU publicada 
+    por la Fundación para el Software Libre, ya sea la versión 3 
+    de la Licencia, o (a su elección) cualquier versión posterior.
+
+    Este programa se distribuye con la esperanza de que sea útil, pero 
+    SIN GARANTÍA ALGUNA; ni siquiera la garantía implícita 
+    MERCANTIL o de APTITUD PARA UN PROPÓSITO DETERMINADO. 
+    Consulte los detalles de la Licencia Pública General GNU para obtener 
+    una información más detallada. 
+
+    Debería haber recibido una copia de la Licencia Pública General GNU 
+    junto a este programa. 
+    En caso contrario, consulte <http://www.gnu.org/licenses/>.
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<script src="../resources/js/pnt001.js" type="text/javascript"></script>
+<ui:include src="common/cabeceras.xhtml" />
+<ui:include src="common/timeout.xhtml" />
+<h:body>
+<f:view>
+ <!-- Top-->
+	<ui:include src="common/top.xhtml" />
+   <div id="wrapper">
+	<!-- Menú-->
+	<ui:include src="common/menu.xhtml" />
+	
+
+	 <div class="container-fluid" id="containerF">
+	<h:form id="formPnt001"  >
+			    <!-- Div para colocar botones -->
+				<div id="botones">                
+				<p:toolbar>  
+                 <f:facet name="left">  
+                  <p:commandButton update="tbResult, panel, growl" accesskey="i" id="btnIn" action="#{pnt001.guardar}" 
+                  value="#{msg.htmlguardar}"  title="#{msg.htmlg}" icon="fa fa-save" styleClass="botonUn"/>
+                  <p:commandButton update="tbResult, growl" accesskey="r" id="btnEl"  action="#{pnt001.delete}" 
+                  validateClient="false"  immediate="true" value="#{msg.htmlborrar}" icon="fa fa-trash" title="#{msg.htmle}" styleClass="botonUn" />
+                  <p:separator/>  
+                  <p:commandButton icon="fa fa-refresh" update="tbResult, panel" process="@this" 
+                 title="#{msg.htmlr}"  styleClass="botonUn" accesskey="l">  
+                 <p:resetInput target="panel" />  
+                 </p:commandButton>                                
+                 </f:facet>   
+                </p:toolbar>  
+				</div><br/>
+				
+				   <!-- Mensaje e imagen --> 		
+			     <div id="encabezados">   
+				  <p:growl globalOnly="true" id="growl" life="30000"/>
+				  <ui:include src="common/loader.xhtml"/>
+				  </div> 
+	
+				<!-- Panel -->
+			 <div class="panel panel-default" style="margin-top: 20px; margin-bottom: 10px">
+		     <div class="panel-body">
+		         <p:panel id="panel" header="#{msg.pnt001tit}" toggleable="true">
+		         <div id="pnt001">
+		         <p:tabView id="tabView" style="height:auto;" >  
+                 <p:tab id="tab1" title="#{msg.pnt001TabBas}">  
+                 <h:panelGrid columns="1" >	         
+			     <p:inputText id="codcia" placeholder="#{msg.pnt001Cod}" style="height: 45px;" styleClass="form-control" maxlength="3"  value="#{pnt001.codcia}" required="true"  requiredMessage="#{utils.getMessage('html43')}"/>
+			     <p:message for="codcia"/>
+			     <p:inputText id="nomci1"  placeholder="#{msg.pnt001Nomci1}" style="height: 45px;" styleClass="form-control" maxlength="50" value="#{pnt001.nomcia1}" required="true"  requiredMessage="#{utils.getMessage('html43')}"/>		         	
+                 <p:message for="nomci1"/>
+			     <p:inputText id="nomci2" placeholder="#{msg.pnt001Nomci2}" style="height: 45px;" styleClass="form-control" maxlength="20" value="#{pnt001.nomcia2}" required="true"  requiredMessage="#{utils.getMessage('html43')}"/>
+			     <p:message for="nomci2"/>
+			     <p:inputText id="id1" placeholder="#{msg.pnt001Id1}"  style="height: 45px;" styleClass="form-control" maxlength="25" value="#{pnt001.id1}" required="true" requiredMessage="#{utils.getMessage('html43')}"/>
+			     <p:message for="id1"/>
+			     <p:inputText id="id2" placeholder="#{msg.pnt001Id2}"  style="height: 45px;" styleClass="form-control" maxlength="25" value="#{pnt001.id2}" />
+		         </h:panelGrid>
+                 </p:tab>  
+  
+                 <p:tab id="tab2" title="#{msg.pnt001TabDir}">  
+                 <h:panelGrid columns="1">	 
+			     <p:inputTextarea id="dir" placeholder="#{msg.pnt001Dir}" maxlength="150" styleClass="form-control" autoResize="false"  value="#{pnt001.dir}" required="true" requiredMessage="#{utils.getMessage('html43')}"/>          		         	
+		         <p:message for="dir"/>
+			     <p:autoComplete id="pcodpai" placeholder="&nbsp;&nbsp;#{msg.pnt001Pais}" value="#{pnt001.pcodpai}"  emptyMessage="#{msg.html46}" completeMethod="#{autocomplete.completePais}" dropdown="true" maxResults="30" scrollHeight="250" required="true" requiredMessage="#{utils.getMessage('html43')}">
+                 <p:ajax event="itemSelect" listener="#{utils.setPais(pnt001.pcodpai)}" />
+			     </p:autoComplete>
+			     <p:message for="pcodpai"/>
+			     <p:autoComplete id="pcodciu" placeholder="&nbsp;&nbsp;#{msg.pnt001Ciu}" value="#{pnt001.pcodciu}" style="margin-top:5px" emptyMessage="#{msg.html46}" completeMethod="#{autocomplete.completeCiudad}" dropdown="true" maxResults="30" scrollHeight="250" required="true" requiredMessage="#{utils.getMessage('html43')}"/>
+			     <p:message for="pcodciu"/>
+		         </h:panelGrid>
+                 </p:tab>  
+  
+                 <p:tab id="tab3" title="#{msg.pnt001TabTlf}" > 
+                 <h:panelGrid columns="1"  >	         
+			     <p:inputText id="tlf1"  style="height: 45px;" styleClass="form-control" maxlength="15" value="#{pnt001.tlf1}" required="true" converter="javax.faces.BigInteger" converterMessage="#{utils.getMessage('isInt')}" requiredMessage="#{utils.getMessage('html43')}"/>		         	
+                 <p:message for="tlf1"/>
+                 <p:tooltip for="tlf1" value="#{msg.pnt001Tlf1}"/>
+			     <p:inputText id="tlf2"  style="height: 45px;" styleClass="form-control" maxlength="15" value="#{pnt001.tlf2}" required="true" converter="javax.faces.BigInteger" converterMessage="#{utils.getMessage('isInt')}" requiredMessage="#{utils.getMessage('html43')}"/>	
+		         <p:message for="tlf2"/>
+		         <p:tooltip for="tlf2" value="#{msg.pnt001Tlf2}"/>
+		         </h:panelGrid>
+                 </p:tab>  
+                 </p:tabView>  
+                 </div>
+		         <h:inputHidden id="vop"     value="#{pnt001.validarOperacion}" />		
+			     <h:inputHidden id="grupo"   value="#{pnt001.localgrupo}" />
+	             </p:panel>	             
+			</div>
+			</div>
+				
+
+			<!-- Tabla con el resultado -->
+			<p:dataTable id="tbResult" styleClass="table table-striped" emptyMessage="#{msg.result}" var="tb"  value="#{pnt001.lazyModel}" lazy="true" sortBy="#{tb.vcodcia}"
+			paginator="true" paginatorAlwaysVisible="false" rows="15" rowsPerPageTemplate="5,10,15,20,50,100,500" paginatorPosition="top"
+			paginatorTemplate="{FirstPageLink} {PreviousPageLink} &#160;&#160; {NextPageLink} {LastPageLink} {RowsPerPageDropdown} {CurrentPageReport}"
+			currentPageReportTemplate=" {currentPage} - {totalPages} #{msg.html28} {totalRecords}" reflow="true" 
+			widgetVar="global" >
+			
+			<f:facet name="header"> 			
+            <p:outputPanel>  
+                <h:outputText value="#{msg.htmlb}" />&#160;&#160;  
+                <p:inputText id="globalFilter" onkeyup="PF('global').filter()" style="width:150px" /> 
+                <p:tooltip for="globalFilter" value="#{msg.html36}" showEffect="fade" hideEffect="fade" />  
+                <p:watermark for="globalFilter" value="#{msg.html29}" /> &#160;&#160;
+                <p:commandButton id="toggler" type="button"  style="float:right" icon="fa fa-calculator" />
+                <p:columnToggler datasource="tbResult" trigger="toggler" />
+            </p:outputPanel>         
+            </f:facet> 
+            
+            <p:column style="width:40px" >  
+            <f:facet  name="header">
+            <p:commandLink onclick="fm_check('toDelete',true)"><i class="fa fa-trash fa-2x" title="#{msg.borrar}"></i></p:commandLink>
+            </f:facet>  
+            <input type="checkbox" name="toDelete" class="chk" value="#{tb.vcodcia}#{tb.vgrupo}"/>
+            </p:column>
+            
+            
+            <p:column sortBy="#{tb.vcodcia}" styleClass="wrap" style="width:100px">  
+            <f:facet name="header">#{msg.pnt001TbCod}</f:facet> 
+            <h:outputLabel value="#{tb.vcodcia}"  />  
+            </p:column>  
+            
+            <p:column sortBy="#{tb.vnomcia2}" styleClass="wrap">  
+            <f:facet name="header">#{msg.pnt001TbDes}</f:facet> 
+            <h:outputLabel value="#{tb.vnomcia2}"   />
+            </p:column> 
+            
+            <p:column>  
+            <f:facet name="header">#{msg.pnt001TbId1}</f:facet>  
+            <h:outputLabel value="#{tb.vid}"   />
+            </p:column>
+            
+            <p:column>  
+            <f:facet name="header">#{msg.pnt001TbPais}</f:facet>  
+            <h:outputLabel value="#{tb.vpcodpai}"   />
+            </p:column> 
+                   
+            <p:column style="width:60px" >  
+            <f:facet name="header">#{msg.enviar}</f:facet>  
+            <p:commandLink styleClass="edit" 
+            onclick="enviar('#{tb.vcodcia}','#{tb.vnomcia1}', '#{tb.vnomcia2}', '#{tb.vid}', '#{tb.vid2}', '#{tb.vdir}'
+            		, '#{tb.vpcodpaidespai}', '#{tb.vpcodciudesciu}', '#{tb.tlf1}', '#{tb.tlf2}','1', '#{tb.vgrupo}')" 
+            title="Enviar"><i class="fa fa-pencil-square-o fa-2x"></i></p:commandLink>   
+            </p:column>
+             
+                     
+            </p:dataTable>   
+       </h:form>
+   </div>
+    
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+   </f:view>
+</h:body>
+</html>

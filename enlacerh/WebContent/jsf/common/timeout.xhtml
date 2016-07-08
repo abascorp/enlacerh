@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!-- 
+     Copyright (C) 2011  DVCONSULTORES
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+
+<h:body>
+		<p:idleMonitor timeout="300000" onidle="PF('idleDialog').show()" />
+
+	<p:dialog header="#{msg.sessionCad}" resizable="false" closable="false"
+		widgetVar="idleDialog" modal="true" width="400" fitViewport="true">
+		<h:outputText value="#{msg.sessionMsj}" />
+		<br />
+		<br />
+		<h:form>
+			<center>
+				<p:commandButton value="OPENNOMINA - LOGIN" icon=""
+					action="#{loginBean.logout}" />
+			</center>
+		</h:form>
+	</p:dialog>
+	
+	
+	<p:dialog header="#{msg.sessionCad}" resizable="false" closable="false"
+		widgetVar="idleDialog1" modal="true" position="top" fitViewport="true">
+		<center>
+		<a class="btn btn-danger">
+		<i class="fa fa-exclamation-circle fa-2x"></i>
+		</a><br/><br/>
+		<h:outputText value="#{msg.sessionMsj1}" style="color: #FE2E2E; font-weight: bold"/>
+		</center>
+		<br />
+		<br />
+		<h:form>
+			<center>
+				<p:commandButton value="OPENNOMINA - LOGIN" icon=""
+					action="#{loginBean.logout}" />
+			</center>
+		</h:form>
+	</p:dialog>
+	
+	
+	<p:dialog header="#{msg.sessionCad}" resizable="false" closable="true"
+		widgetVar="idleDialog2" modal="true" position="top" fitViewport="true">
+		<center>
+		<br/>
+		<h:outputText value="#{msg.sessionMsj2}" /><br/>
+		<h:outputText value="#{msg.sessionMsj3}" /><br/>
+		<h:outputText value="#{msg.sessionMsj4}" /><br/>
+		
+		<br />
+		<a class="btn btn-warning" href="chgmail.xhtml">
+		<i class="fa fa-envelope-o"></i>&nbsp;&nbsp;#{msg.auto09}
+		</a>
+		<a class="btn btn-success" onclick="PF('idleDialog2').hide()">
+		<i class="fa fa-times-circle"></i>&nbsp;&nbsp;Cerrar
+		</a>
+		</center>
+	</p:dialog>
+	
+</h:body>
+</html>

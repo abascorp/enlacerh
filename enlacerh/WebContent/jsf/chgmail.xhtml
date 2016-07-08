@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!-- 
+     Copyright (C) 2011  ANDRES DOMINGUEZ
+
+    Este programa es software libre: usted puede redistribuirlo y/o modificarlo 
+    bajo los tÃ©rminos de la Licencia PÃºblica General GNU publicada 
+    por la FundaciÃ³n para el Software Libre, ya sea la versiÃ³n 3 
+    de la Licencia, o (a su elecciÃ³n) cualquier versiÃ³n posterior.
+
+    Este programa se distribuye con la esperanza de que sea Ãºtil, pero 
+    SIN GARANTÃ�A ALGUNA; ni siquiera la garantÃ­a implÃ­cita 
+    MERCANTIL o de APTITUD PARA UN PROPÃ“SITO DETERMINADO. 
+    Consulte los detalles de la Licencia PÃºblica General GNU para obtener 
+    una informaciÃ³n mÃ¡s detallada. 
+
+    DeberÃ­a haber recibido una copia de la Licencia PÃºblica General GNU 
+    junto a este programa. 
+    En caso contrario, consulte <http://www.gnu.org/licenses/>.
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<ui:include src="common/cabeceras.xhtml" />
+<ui:include src="common/timeout.xhtml" />
+<h:body>
+<f:view>
+ <!-- Top-->
+	<ui:include src="common/top.xhtml" />
+   <div id="wrapper">
+	<!-- MenÃº-->
+	<ui:include src="common/menu.xhtml" />
+	
+
+	 <div class="container-fluid" id="containerF">
+	<h:form id="formChgmail"  >
+
+         	  <!-- Mensaje e imagen --> 		
+			     <div id="encabezados">   
+				  <p:growl globalOnly="true" id="growl" life="30000"/>
+				  <ui:include src="common/loader1.xhtml"/>
+				  </div> 
+	
+		 
+		 	<!-- Panel -->
+			 <div class="panel panel-default" style="margin-top: 20px; margin-bottom: 10px">
+		     <div class="panel-body">
+		         <p:panel id="panel"  header="#{msg.regchgmail}" >	     	         
+		         <h:panelGrid  columns="1">	         
+	             <p:inputText id="mail" placeholder="#{msg.regmail}" style="height: 45px;" styleClass="form-control" maxlength="150"   value="#{registro.mail}" required="true" requiredMessage="#{utils.getMessage('html43')}" validatorMessage="#{utils.getMessage('autos01IngMail1')}">
+		        <f:validateRegex pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />
+	            </p:inputText>
+	            <p:message for="mail"/>
+	             <p:inputText id="mailConf"  placeholder="#{msg.regmailConf}" style="height: 45px;" styleClass="form-control" maxlength="150" value="#{registro.confirmMail}" required="true" requiredMessage="#{utils.getMessage('html43')}" validatorMessage="#{utils.getMessage('autos01IngMail1')}">
+		        <f:validateRegex pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />
+	            </p:inputText>
+	            <p:message for="mailConf"/>
+	            <p:spacer height="20"/>
+	            <h:outputText value="#{msg.mailEstado}"/>
+	            <h:outputText styleClass="tituloCia" value="#{validaEstadoCuentaCorreo.estadomail}" />
+		        </h:panelGrid>
+	            </p:panel><br/><br/>
+	        </div>
+	        </div>    
+				
+				
+            &#160;<p:commandButton value="#{msg.chgmailButton}" 
+            action="#{registro.updateMail}" update="growl, panel" styleClass="botonUn"/>&#160;&#160;
+            <p:commandButton value="#{msg.chgmailButtonL}" immediate="true" update="panel, growl" process="@this" styleClass="botonUn" >  
+                 <p:resetInput target="panel" />  
+            </p:commandButton>     
+
+            <!-- /#page-content-wrapper -->
+ </h:form>
+    </div>
+    </div>
+    <!-- /#wrapper -->
+   </f:view>
+</h:body>
+</html>
+

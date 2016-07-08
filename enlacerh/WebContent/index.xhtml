@@ -1,0 +1,246 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!-- 
+     Copyright (C) 2011  ANDRES DOMINGUEZ
+
+    Este programa es software libre: usted puede redistribuirlo y/o modificarlo 
+    bajo los términos de la Licencia Pública General GNU publicada 
+    por la Fundación para el Software Libre, ya sea la versión 3 
+    de la Licencia, o (a su elección) cualquier versión posterior.
+
+
+    Este programa se distribuye con la esperanza de que sea útil, pero 
+    SIN GARANTÍA ALGUNA; ni siquiera la garantía implícita 
+    MERCANTIL o de APTITUD PARA UN PROPÓSITO DETERMINADO. 
+    Consulte los detalles de la Licencia Pública General GNU para obtener 
+    una información más detallada. 
+
+    Debería haber recibido una copia de la Licencia Pública General GNU 
+    junto a este programa. 
+    En caso contrario, consulte <http://www.gnu.org/licenses/>.
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<!-- Estilos -->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="shortcut icon" href="resources/img/favicon.ico" />
+<link type="text/css" rel="stylesheet" href="resources/ccs/styles.css" />
+<!-- Bootstrap Core CSS -->
+ <link type="text/css" rel="stylesheet" href="resources/ccs/bootstrap.min.css" />
+<!-- Custom CSS -->
+<link type="text/css" rel="stylesheet" href="resources/ccs/scrolling-nav.css" />
+<link href="resources/font-awesome-4.3.0/css/font-awesome.min.css" rel="stylesheet"/>
+<!-- Custom Fonts 
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css"/> -->
+<link href='https://fonts.googleapis.com/css?family=Ek+Mukta:400,800,700,600,300,500,200' rel='stylesheet' type='text/css'/>
+
+	
+	<title>EnlaceRH</title>
+</h:head>
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+<!-- Properties para lenguaje -->
+<f:loadBundle basename="org.opennomina.util.MessagesBundle_es_VEN" var="msg"/>
+<f:view>
+<f:event type="preRenderView" listener="#{loginBean.isLogged()}"/>
+
+ <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#page-top">EnlaceRH</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav">
+                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#about">Registro</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#services">Recuperar clave</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#acerca">Más información</a>
+                    </li>
+
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+    
+     <section id="intro" class="intro-section">
+        <div class="container">
+         <h:form styleClass="form-signin" id="loginform">
+         <!-- Ajax Status panel -->
+		   <div style="float: right;">
+		  	<p:ajaxStatus  id="ajaxStatusPanel">  
+			<f:facet name="start">  
+			<h:graphicImage value="resources/img/ajax-loader_login.gif" height="50" /> 
+			</f:facet>       
+			</p:ajaxStatus>   
+		   </div>	
+         <center>
+         <div style="max-width: 400px;opacity: 1;">
+         <div class="panel panel-primary">
+         <div class="panel-heading"><center>Inicio de sesión</center></div>
+         <center><h:graphicImage value="resources/img/user_login.png" height="90" /> </center>  
+          <div class="panel-body">
+           <h:panelGrid  id="panel" columns="1" width="80%" >
+            <p:inputText id="usuario" placeholder="#{msg.logUsuario}" styleClass="form-control" style="height:50px; margin-bottom: 10px;"  maxlength="30"  required="true"  requiredMessage="#{utils.getMessage('loginuser')}" value="#{loginBean.usuario}"/>
+            <p:message for="usuario" />
+            <p:password id="clave" placeholder="#{msg.logClaveW}" feedback="false" styleClass="form-control"  style="height:50px; margin-bottom: 10px;margin-top: 10px;" maxlength="30" required="true" requiredMessage="#{utils.getMessage('logclave')}" value="#{loginBean.clave}"/>
+            <p:message for="clave" />
+           </h:panelGrid>
+          </div>
+          <div class="panel-footer">
+		  <p:commandButton value="#{msg.entrar}" id="btnLogin" action="#{loginBean.login}" styleClass="btn btn-lg btn-primary btn-block" update="panel, msj" />
+		  <br/>
+		  </div>
+         </div>
+         <p:messages globalOnly="true" id="msj" />
+         </div>        
+         <div>  
+	    </div>  
+         </center>
+         </h:form>
+        </div>
+    </section>
+    <section id="about" class="about-section">
+        <div class="container">
+          <h:form id="regform" prependId="false">
+		   <!-- Ajax Status panel -->
+		   <div style="float: right;">
+		  	<p:ajaxStatus  id="ajaxStatusPanel1">  
+			<f:facet name="start">  
+			<h:graphicImage value="resources/img/ajax-loader_login.gif" height="50" /> 
+			</f:facet>       
+			</p:ajaxStatus>   
+		   </div>	
+              <center>
+              <div style="max-width: 650px;opacity: 0.9;">
+               <div class="panel panel-primary">
+                <div class="panel-heading"><center>#{msg.login_reg}</center></div>
+                <div class="panel-body">
+                 <h:panelGrid  id="panelreg" columns="1" width="80%" >
+ 	             <p:inputText id="coduser" placeholder="#{msg.regcoduser}"  maxlength="15" styleClass="form-control" style="height:50px; margin-bottom: 5px;" value="#{registro.coduser}" required="true" requiredMessage="#{utils.getMessage('html43')}"/> 
+	             <p:message for="coduser"/>
+	             <p:password id="clave" placeholder="#{msg.regclave}"  maxlength="30" styleClass="form-control" style="height:50px; margin-bottom: 5px;" value="#{registro.cluser}" validatorMessage="#{utils.getMessage('autos01IngCl1')}" required="true" requiredMessage="#{utils.getMessage('html43')}">
+	             <f:validateLength minimum="5"/>
+	             </p:password>
+	             <p:message for="clave"/>
+	             <p:inputText id="mail" placeholder="#{msg.regmail}" maxlength="40" styleClass="form-control" style="height:50px; margin-bottom: 5px;" value="#{registro.mail}" required="true" requiredMessage="#{utils.getMessage('html43')}" validatorMessage="#{utils.getMessage('autos01IngMail1')}">
+	             <f:validateRegex pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />
+	             </p:inputText>	              
+	             <p:message for="mail"/>
+	             <p:inputText id="total" placeholder="Coloque código de validación *" value="#{registro.captcha}" required="true" styleClass="form-control" style="height:50px; margin-bottom: 5px;" requiredMessage="#{utils.getMessage('html43')}" />
+	             <p:message for="total"/>
+	            </h:panelGrid> <br/>
+
+	            <p:commandButton value="#{msg.regguardar}" styleClass="btn btn-lg btn-primary btn-block"  id="btnGuardar" title="#{msg.html20}"  update="panelreg, msjreg"  action="#{registro.insert}"/>                 
+                </div>
+               </div>
+               <p:messages globalOnly="true" id="msjreg" />
+              </div>                
+              </center>
+             </h:form>
+        </div>
+    </section>
+     <section id="services" class="services-section">
+        <div class="container">
+         <h:form styleClass="form-signin" id="clform">
+         <!-- Ajax Status panel -->
+		   <div style="float: right;">
+		  	<p:ajaxStatus  id="ajaxStatusPanel2">  
+			<f:facet name="start">  
+			<h:graphicImage value="resources/img/ajax-loader_login.gif" height="50" /> 
+			</f:facet>       
+			</p:ajaxStatus>   
+		   </div>	
+         <center>
+         <div style="max-width: 400px;opacity: 0.9;">
+         <div class="panel panel-primary">
+         <div class="panel-heading"><center>#{msg.recclave}</center></div>
+         <center><h:graphicImage value="resources/img/user_login.png" height="90" /> </center>  
+          <div class="panel-body">
+           <h:panelGrid  id="panelcl" columns="1" width="80%" >
+            <p:inputText id="usuariocl" placeholder="#{msg.logUsuario}" styleClass="form-control" style="height:50px; margin-bottom: 10px;"  maxlength="30"  required="true"  requiredMessage="#{utils.getMessage('loginuser')}" value="#{sendmail.usuario}"/>
+            <p:message for="usuariocl" />
+           </h:panelGrid>
+          </div>
+          <div class="panel-footer">
+		  <p:commandButton value="Submit" id="btncl" actionListener="#{sendmail.enviarClave}" styleClass="btn btn-lg btn-primary btn-block" update="panelcl, msjcl" />
+		  <br/>
+		  </div>
+         </div>
+         <p:messages globalOnly="true" id="msjcl" />
+         </div>        
+         <div>  
+	    </div>  
+         </center>
+         </h:form>
+        </div>
+    </section>
+    
+    <section id="acerca" class="acerca-section">
+        <div class="container">
+            <h2 class="title text-center"><i class="fa fa-cloud"></i>&nbsp;&nbsp;EnlaceRH</h2>
+            <p class="lead text-justify"><big>Es un software integral que engloba la autogestión de información concerniente al pago de nómina (autoservicio).
+            Se concibe con la finalidad de brindar al trabajador información vía web de sus pagos procesados
+            , acumulados de prestaciones, antigüedad, vacaciones, utilidades entre otros. 
+            Le permitirá minimizar trabajo operativo para brindar información a sus trabajadores y está disponible las 24 horas 
+            del día los 365 días del año.</big> </p>
+            <h2 class="title text-center">Características generales</h2><br/>
+            <ul class="lead feature-list list-unstyled">
+                <li><i class="fa fa-check"></i> Acceso Web</li>
+                <li><i class="fa fa-check"></i> Amplio manejo de seguridad</li>
+                <li><i class="fa fa-check"></i> Disponible 24 horas</li>
+                <li><i class="fa fa-check"></i> Envío de recibos vía correo electrónico</li>
+                <li><i class="fa fa-check"></i> Recibos de pagos adaptable</li>
+                <li><i class="fa fa-check"></i> Compatible con todos los navegadores modernos</li>
+                <li><i class="fa fa-check"></i> Autoadministrada</li>
+                <li><i class="fa fa-check"></i> Bajo costo</li>
+                <li><i class="fa fa-check"></i> Módulo de autoservicio</li>
+            </ul>
+        </div>    <!-- /.container -->
+    </section>
+
+<!--
+    <section id="contact" class="contact-section">
+        <div class="container">
+         <div class="text-center">
+            <ul class="social-icons list-inline">
+              <li><a href="mailto: adominguez@dvconsultores.com" target="_blank" title="Contacto"><i class="fa fa-envelope fa-fw fa-2x"></i></a></li>
+              <li><a href="https://www.opennomina.com/wiki/doku.php?id=opennomina" target="_blank" title="Full documentación"><i class="fa fa-book fa-fw fa-2x"></i></a></li>
+              <li><a href="http://www.dvconsultores.com/" target="_blank" title="DVConsultores"><i class="fa fa-bug fa-fw fa-2x"></i></a></li>             
+             </ul>
+             Copyright © DvConsultores 2014
+          </div>   
+        </div>
+    </section>
+ -->    
+ </f:view>	
+ <!-- Core JavaScript Files -->
+<script src="resources/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="resources/js/jquery.easing.min.js" type="text/javascript"></script>
+<script src="resources/js/scrolling-nav.js" type="text/javascript"></script>
+<script src="resources/js/load.js" type="text/javascript"></script>
+<script src="resources/js/autos01.js" type="text/javascript"></script>
+</body>
+</html>

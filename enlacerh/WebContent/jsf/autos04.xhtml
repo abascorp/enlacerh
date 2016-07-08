@@ -1,0 +1,232 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!-- 
+     Copyright (C) 2011  ANDRES DOMINGUEZ
+
+    Este programa es software libre: usted puede redistribuirlo y/o modificarlo 
+    bajo los tÃ©rminos de la Licencia PÃºblica General GNU publicada 
+    por la FundaciÃ³n para el Software Libre, ya sea la versiÃ³n 3 
+    de la Licencia, o (a su elecciÃ³n) cualquier versiÃ³n posterior.
+
+    Este programa se distribuye con la esperanza de que sea Ãºtil, pero 
+    SIN GARANTÃ�A ALGUNA; ni siquiera la garantÃ­a implÃ­cita 
+    MERCANTIL o de APTITUD PARA UN PROPÃ“SITO DETERMINADO. 
+    Consulte los detalles de la Licencia PÃºblica General GNU para obtener 
+    una informaciÃ³n mÃ¡s detallada. 
+
+    DeberÃ­a haber recibido una copia de la Licencia PÃºblica General GNU 
+    junto a este programa. 
+    En caso contrario, consulte <http://www.gnu.org/licenses/>.
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<script src="../resources/js/autos04.js" type="text/javascript"></script>
+<ui:include src="common/cabeceras.xhtml" />
+<ui:include src="common/timeout.xhtml" />
+<h:body>
+<f:view>
+ <!-- Top-->
+	<ui:include src="common/top.xhtml" />
+   <div id="wrapper">
+	<!-- MenÃº-->
+	<ui:include src="common/menu.xhtml" />
+	
+
+	 <div class="container-fluid" id="containerF">
+
+	<h:form id="formAutoSPrestacion">
+	          <div id="botones">              
+				<p:toolbar>  
+                 <f:facet name="left">  
+                 <p:commandButton id="btnBus"  title="#{msg.htmlbuscar}" styleClass="botonUn" accesskey="b" update="tbResult, growl"
+                  value="#{msg.html49}"  icon="fa fa-search">           
+                 </p:commandButton>
+                 <p:commandButton icon="fa fa-refresh" styleClass="botonUn" update="tbResult, growl, panelBusqueda" process="@this"  
+                title="#{msg.htmlr}"    accesskey="l" >  
+                 <p:resetInput target="panelBusqueda" /> 
+                 </p:commandButton>                       
+                 </f:facet>   
+                </p:toolbar>  
+				</div><br/>
+	
+	             <!-- Mensaje e imagen --> 		
+			      <div id="encabezados">   
+				  <p:growl globalOnly="true" id="growl" life="30000"/>
+				  <ui:include src="common/loader.xhtml"/>
+				  </div> 
+				
+			<!-- Panel -->
+			 <div class="panel panel-default" style="margin-top: 15px; margin-bottom: 10px">
+		     <div class="panel-body">
+			<p:panel id="panelBusqueda" style="white-space: normal;" header="#{msg.autopresttit}" toggleable="true"  toggleSpeed="500" >
+            <h:panelGrid  columns="1"  >	      
+			     <p:inputText id="anio" placeholder="#{msg.autoprestAnio}"  maxlength="4" style="height: 45px;" styleClass="form-control"  value="#{autos04.anio}"/>         
+			     <h:selectOneMenu id="mes" value="#{autos04.mes}" effect="highlight">
+			     <f:selectItem itemValue="#{null}" itemLabel="#{msg.autos02Opc0}" />
+                 <f:selectItems  value="#{listBean.meses}"/>
+                 </h:selectOneMenu>
+		    </h:panelGrid>  
+		     <f:facet name="footer">		    
+		    <h:outputLabel value="#{autos02.nombre1}&nbsp;#{autos02.apell1}" styleClass="tituloCia"/>
+		    &nbsp;
+		    <p:commandLink icon="ui-icon-newwin" styleClass="btn btn-info"  immediate="true" title="#{msg.autonomDatos}"
+            onclick="$('#myModal').modal('show')"  >
+            <i class="fa fa-bars fa-2x"></i>
+            </p:commandLink>
+	        </f:facet> 
+           </p:panel><br/>
+           <p:panel>
+           <div class="container-fluid">     
+	       <div class="row">
+	       <div class="col-md-3" >#{msg.autoprestEncabCant}</div>
+	       <div class="col-md-3" style="font-weight: bold;">#{autos04.cantidad}</div>
+	       <div class="col-md-3" >#{msg.autoprestEncabMonto}</div>
+	       <div class="col-md-3" style="font-weight: bold;">#{autos04.monto}</div>
+	       <div class="col-md-3" >#{msg.autoprestEncabAnt}</div>
+	       <div class="col-md-3" style="font-weight: bold;" >#{autos04.anticipos}</div>
+	       <div class="col-md-3" >#{msg.autoprestEncabDispo}</div>
+	       <div class="col-md-3" >
+	       <p:commandButton  title="#{msg.html10}" 
+	       immediate="true" icon="fa fa-print" styleClass="botonPag" 
+	       accesskey="p"
+	       value="#{msg.html50}"
+	       onclick="imprimirRecibo('#{autos04.pcodcia}AUTOPREST','#{autos04.pfictra}','#{autos04.anio}','#{autos04.mes}');"/>
+	       </div>
+	       </div>
+	        </div>
+	        </p:panel>
+           
+     
+           
+                    <!-- Modal Indice ciclo 1-->
+	<div class="modal fade modal-wide" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+
+	      <div class="modal-body">
+	      <div class="panel panel-info">
+	      <div class="panel-heading">#{msg.autonomDatos}</div>
+	       <div class="container-fluid">
+	       <div class="panel-body">
+	       <div class="row">
+	        <div class="col-md-3"><img src="#{autos02.imagen()}" class="img-rounded" title="#{msg.autonomImg}"  alt="user" width="180" height="200" onclick="upload();" ondblclick="uploadC();"/></div>
+	        <div class="col-md-3" style="font-weight: bold;">#{msg.autonomCia}</div>
+	        <div class="col-md-6" >#{autos04.codcia}</div>
+	        <div class="col-md-3" style="font-weight: bold;">#{msg.autonomNom}</div>
+	        <div class="col-md-6" >#{autos04.ptipnom}</div>
+	        <div class="col-md-3" style="font-weight: bold;">#{msg.autonomFictra}</div>
+	        <div class="col-md-6" >#{autos04.pfictra}</div>
+	        <div class="col-md-3" style="font-weight: bold;">#{msg.autonomApell}</div>
+	        <div class="col-md-6" >#{autos04.apell1}</div>
+	        <div class="col-md-3" style="font-weight: bold;">#{msg.autonomNbr}</div>
+	        <div class="col-md-6" >#{autos04.nombre1}</div>
+	        <div class="col-md-3" style="font-weight: bold;">#{msg.autonomIng}</div>
+	        <div class="col-md-6" >#{autos04.fecing}</div>
+	        <div class="col-md-3" style="font-weight: bold;">#{msg.autonomSueld}</div>
+	        <div class="col-md-6" >#{autos04.sueld1}</div>
+	        <div class="col-md-3" style="font-weight: bold;">#{msg.autonomCgo}</div>
+	        <div class="col-md-6" >#{autos04.pcodcar}</div>
+	        <div class="col-md-3" style="font-weight: bold;">#{msg.autonomLoc}</div>
+	        <div class="col-md-6" >#{autos04.pcodloc}</div>
+	        <div class="col-md-3" style="font-weight: bold;">#{msg.autonomSuc}</div>
+	        <div class="col-md-6" >#{autos04.pcodsuc}</div>
+	        <div class="col-md-3" style="font-weight: bold;">#{msg.autonomUni}</div>
+	        <div class="col-md-6" >#{autos04.pcoduni}</div>
+	        <div class="col-md-3" style="font-weight: bold;">#{msg.autonomDep}</div>
+	        <div class="col-md-6" >#{autos04.pcoddep}</div>
+	        </div>	<br/>
+	        <div id="upload" style="display: none;margin-bottom: 10px">                
+           <p:fileUpload fileUploadListener="#{fileUploadController.handleImageUpload}"
+            mode="advanced"
+            update="growl" 
+            cancelLabel="#{msg.autos02Cancel}" 
+            label="#{msg.autos02Sel}"
+            uploadLabel="#{msg.autos02Up}">
+            <f:attribute name="coduser" value="#{loginBean.logged}" />	
+            </p:fileUpload>
+            </div>    
+		  </div>
+		  </div>
+	      </div>
+
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-info" data-dismiss="modal">#{msg.aceC}</button>
+	       </div>
+	    </div>
+	  </div>
+	 </div>               
+           
+           
+            </div>
+           </div>
+           
+
+           
+           <!-- Tabla con el resultado -->
+			<p:dataTable id="tbResult" styleClass="table table-striped" emptyMessage="#{msg.result}" var="tb"  value="#{autos04.lazyModel}" lazy="true" sortBy="#{tb.vanio}"
+			paginator="true" paginatorAlwaysVisible="false" rows="15" rowsPerPageTemplate="5,10,15,20,50,100,500" paginatorPosition="top"
+			paginatorTemplate="{FirstPageLink} {PreviousPageLink} &#160;&#160; {NextPageLink} {LastPageLink} {RowsPerPageDropdown} {CurrentPageReport}"
+			currentPageReportTemplate=" {currentPage} - {totalPages} #{msg.html28} {totalRecords} "  reflow="true"
+			widgetVar="global">
+			
+			<f:facet name="header"> 			
+            <p:outputPanel>  
+                <h:outputText value="#{msg.htmlb}" />&#160;&#160;  
+                <p:inputText id="globalFilter" onkeyup="PF('global').filter()"  style="width:150px;" /> 
+                <p:watermark for="globalFilter" value="#{msg.html29}" /> &#160;&#160;
+                <p:commandButton id="toggler" type="button"  style="float:right" icon="fa fa-calculator" />
+                <p:columnToggler datasource="tbResult" trigger="toggler" />
+            </p:outputPanel>         
+            </f:facet> 
+
+            
+            <p:column sortBy="#{tb.vanio}" styleClass="wrap" style="width:70px">  
+            <f:facet name="header">#{msg.autopresttbAnio}  </f:facet> 
+            <h:outputLabel value="#{tb.vanio}" />  
+            </p:column>  
+            
+            <p:column sortBy="#{tb.vmes}" styleClass="wrap" style="width:70px">  
+            <f:facet name="header">#{msg.autopresttbMes}</f:facet> 
+            <h:outputLabel value="#{tb.vmes}" />  
+            </p:column>  
+            
+            <p:column styleClass="wrap" style="width:100px">  
+            <f:facet name="header">#{msg.autopresttbFecha}</f:facet> 
+            <h:outputLabel value="#{tb.vfecha}" />  
+            </p:column> 
+            
+            <p:column sortBy="#{tb.vcodcto}" styleClass="wrap" style="width:100px">  
+            <f:facet name="header">#{msg.autopresttbCodigo}</f:facet> 
+            <h:outputLabel  value="#{tb.vcodcto}" />  
+            </p:column>   
+            
+            <p:column styleClass="wrap">  
+            <f:facet name="header">#{msg.autopresttbCto}</f:facet> 
+            <h:outputLabel  value="#{tb.vdescto}" />  
+            </p:column> 
+            
+            <p:column styleClass="wrap" style="width:70px">  
+            <f:facet name="header">#{msg.autopresttbCant}</f:facet> 
+            <center><h:outputLabel style="font-weight:bold;" value="#{tb.vcant}" /></center>  
+            </p:column>  
+            
+            <p:column styleClass="wrap">  
+            <f:facet name="header">#{msg.autopresttbMonto}</f:facet> 
+            <center><h:outputLabel style="font-weight:bold;" value="#{tb.vmonto}" /></center>  
+            </p:column> 
+           
+          </p:dataTable>   
+       </h:form>
+   </div>
+    
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+   </f:view>
+</h:body>
+</html>

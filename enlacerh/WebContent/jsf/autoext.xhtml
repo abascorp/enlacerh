@@ -1,0 +1,195 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!-- 
+     Copyright (C) 2011  ANDRES DOMINGUEZ
+
+    Este programa es software libre: usted puede redistribuirlo y/o modificarlo 
+    bajo los términos de la Licencia Pública General GNU publicada 
+    por la Fundación para el Software Libre, ya sea la versión 3 
+    de la Licencia, o (a su elección) cualquier versión posterior.
+
+    Este programa se distribuye con la esperanza de que sea útil, pero 
+    SIN GARANTÍA ALGUNA; ni siquiera la garantía implícita 
+    MERCANTIL o de APTITUD PARA UN PROPÓSITO DETERMINADO. 
+    Consulte los detalles de la Licencia Pública General GNU para obtener 
+    una información más detallada. 
+
+    Debería haber recibido una copia de la Licencia Pública General GNU 
+    junto a este programa. 
+    En caso contrario, consulte <http://www.gnu.org/licenses/>.
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<script src="../resources/js/autoext.js" type="text/javascript"></script>
+<ui:include src="common/cabeceras.xhtml" />
+<ui:include src="common/timeout.xhtml" />
+<h:body >
+<f:view>
+ <!-- Top-->
+	<ui:include src="common/top.xhtml" />
+   <div id="wrapper">
+	<!-- Menú-->
+	<ui:include src="common/menu.xhtml" />
+	
+
+  <div class="container-fluid" id="containerF">
+	<h:form id="formAutoext" enctype="multipart/form-data" >
+        
+         <!-- Modal -->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+	        <h4 class="modal-title" id="myModalLabel">#{msg.autos02Eliminar}</h4>
+	      </div>
+	      <div class="modal-body">
+	    <center>  
+        <h:outputText style="font-size: 16px;" value="#{msg.autos02EliminarMsn}" /> <br />
+        <h:outputText style="font-size: 16px;" value="#{msg.autos02EliminarMsn1}" /> <br /><br />
+        <h:outputText style="font-size: 16px;" value="#{msg.autos02EliminarMsn2}" />    <br /> <br />
+        <p:commandButton update="panelUp, growl, tbResult" immediate="true" oncomplete="$('#myModal').modal('hide');"  action="#{fileUploadController.delete_recibos_enviados}"    value="#{msg.si}"    />  
+        <p:commandButton  value="#{msg.no}" onclick="$('#myModal').modal('hide');" type="button" /> <br/> <br/> 
+        </center>   
+	      </div>
+	    </div>
+	  </div>
+	</div>
+        
+
+           <!-- Div para colocar botones -->
+				<div id="botones">              
+				<p:toolbar>  
+                 <f:facet name="left">  
+                  <p:commandButton update="panelUp, growl, tbResult"  id="btnProc"  action="#{fileUploadController.procAutos02}"
+                  value="#{msg.autos02Proc}" title="#{msg.html22}" icon="fa fa-cog" styleClass="botonUn"/>
+                  <p:separator/>  
+                  <p:commandButton  icon="fa fa-angle-double-left"  validateClient="false"  immediate="true"
+                  actionListener="#{cia.href('cia')}"  
+                  title="#{msg.html14}" styleClass="botonUn" accesskey="a"/>
+                  <p:commandButton update="panelUp, growl" accesskey="r" id="btnEl"  action="#{fileUploadController.delete}" 
+                  value="#{msg.htmlborrar}"  icon="fa fa-trash" title="#{msg.htmle}" styleClass="botonUn" />  
+                  <p:commandButton icon="fa fa-refresh" update="tbResult, panelUp, growl" process="@this"  
+                  title="#{msg.htmlr}"  styleClass="botonUn" accesskey="l">  
+                 <p:resetInput target="panelUp" />  
+                 </p:commandButton>                  
+                 </f:facet>   
+                </p:toolbar>  
+				</div><br/>
+				
+					   <!-- Mensaje e imagen --> 		
+			     <div id="encabezados">   
+				  <p:growl globalOnly="true" id="growl" life="30000"/>
+				  <ui:include src="common/loader1.xhtml"/>
+				  </div> 
+				
+		 <div class="panel panel-default" style="margin-top: 20px; margin-bottom: 10px">
+		     <div class="panel-body">
+			<p:panel  header="#{msg.autos02tit}" toggleable="true">
+			<h:panelGrid id="panelUp"  columns="1" >	         
+			     <p:inputText id="anio" maxlength="4" placeholder="#{msg.autos02Anio}" value="#{fileUploadController.anio}" style="height: 45px;" styleClass="form-control"  converter="javax.faces.Integer" converterMessage="#{utils.getMessage('isInt')}" required="true"  requiredMessage="#{utils.getMessage('html43')}"/>  		     
+			     <p:message for="anio"/>
+			     <h:selectOneMenu id="mes" effect="highlight" value="#{fileUploadController.mes}"  required="true"  requiredMessage="#{utils.getMessage('html43')}">
+                 <f:selectItem itemValue="#{null}" itemLabel="#{msg.autos02Opc0}" />
+                 <f:selectItems  value="#{listBean.meses}"/>
+                 </h:selectOneMenu>  
+                 <p:message for="mes"/>    
+                 <p:spacer height="5"/>           
+			     <h:selectOneMenu id="lista" effect="highlight" value="#{fileUploadController.opc}"  required="true"  requiredMessage="#{utils.getMessage('html43')}">
+                 <f:selectItem itemValue="#{null}" itemLabel="#{msg.autos02Opc}" />
+                 <f:selectItems  value="#{listBean.autoext}"/>
+                 </h:selectOneMenu>	
+                 <p:message for="lista"/>                
+		    </h:panelGrid>
+		    <f:facet name="footer">		    
+		    <h:outputLabel value="#{fileUploadController.getCodcia()}" styleClass="tituloCia"/>
+		    <h:inputHidden id="param"   value="#{fileUploadController.param}" />
+		    <div id="toMail" style="float: right; display: none">#{msg.autos02Mail}&nbsp;&nbsp;<input type="checkbox" name="toMail" class="chk"/></div>
+            </f:facet>            
+           </p:panel>
+
+
+           <h3>#{msg.autos02CargaTxt}</h3>
+	
+           <p:fileUpload fileUploadListener="#{fileUploadController.handleFileUpload}" 
+            mode="advanced"
+            update="growl" 
+            multiple="true"
+            cancelLabel="#{msg.autos02Cancel}"
+            label="#{msg.autos02Sel}"
+            uploadLabel="#{msg.autos02Up}">	
+            </p:fileUpload>
+			
+				</div>
+			</div>	
+		
+			<!-- Tabla con el resultado -->
+		<div style="display: none">
+			<h3>#{msg.autos02ReciboTitulo}
+			<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">
+			<i class="fa fa-recycle"></i>&nbsp;#{msg.autos02Eliminar}
+			</button>
+            </h3>
+		
+		   
+			<p:dataTable id="tbResult" styleClass="table table-striped" emptyMessage="#{msg.result}" var="tb"  value="#{fileUploadController.lazyModel}" lazy="true" sortBy="vanio"
+			paginator="true" paginatorAlwaysVisible="false" rows="15" rowsPerPageTemplate="5,10,15,20,50,100,500" paginatorPosition="top"
+			paginatorTemplate="{FirstPageLink} {PreviousPageLink} &#160;&#160; {NextPageLink} {LastPageLink} {RowsPerPageDropdown} {CurrentPageReport}"
+			currentPageReportTemplate=" {currentPage} - {totalPages} #{msg.html28} {totalRecords}"  
+			widgetVar="global">
+			
+			<f:facet name="header"> 			
+            <p:outputPanel>  
+                <h:outputText value="#{msg.htmlb}" />&#160;&#160;  
+                <p:inputText id="globalFilter" onkeyup="PF('global').filter()" style="width:150px" /> 
+                <p:tooltip for="globalFilter" value="#{msg.html38}" showEffect="fade" hideEffect="fade" /> 
+                <p:watermark for="globalFilter" value="#{msg.html29}" /> &#160;&#160;
+            </p:outputPanel>         
+            </f:facet> 
+            
+            <p:column style="width:40px" >  
+            <f:facet  name="header">
+            <p:commandLink onclick="fm_check('toDelete',true)"><i class="fa fa-trash fa-2x" title="#{msg.borrar}"></i></p:commandLink>
+            </f:facet>  
+            <input type="checkbox" name="toDelete" class="chk" value="#{tb.vanio}#{tb.vmes}#{tb.vperiodo}"/>
+            </p:column> 
+
+            <p:column styleClass="wrap" style="width:400px">  
+            <f:facet name="header">#{msg.autonomId}</f:facet> 
+            <h:outputLabel value="#{tb.vid}" />  
+            </p:column>  
+            
+            <p:column styleClass="wrap" style="width:80px">  
+            <f:facet name="header">#{msg.autonomAnio}</f:facet>  
+            <h:outputLabel value="#{tb.vanio}" />
+            </p:column> 
+            
+            <p:column styleClass="wrap" style="width:80px">  
+            <f:facet name="header">#{msg.autonomMes}</f:facet>  
+            <h:outputLabel value="#{tb.vmes}" />
+            </p:column> 
+            
+            <p:column styleClass="wrap" style="width:80px">  
+            <f:facet name="header">#{msg.autonomPer}</f:facet>  
+            <h:outputLabel value="#{tb.vperiodo}" />
+            </p:column> 
+            
+            <p:column styleClass="wrap" style="width:150px">  
+            <f:facet name="header">#{msg.autos02Procesado}</f:facet>  
+            <h:outputLabel value="#{tb.vcodcto}" />
+            </p:column>
+
+            
+            </p:dataTable>  
+            </div> 
+       </h:form>
+   </div>
+    </div>
+        <!-- /#page-content-wrapper -->
+    <!-- /#wrapper -->
+   </f:view>
+</h:body>
+</html>
