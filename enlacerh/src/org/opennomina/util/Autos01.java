@@ -903,7 +903,6 @@ import org.primefaces.model.SortOrder;
 				try {
 					consulta.selectPntGenerica(query, JNDI);
 				} catch (NamingException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 				if (rows > 0){

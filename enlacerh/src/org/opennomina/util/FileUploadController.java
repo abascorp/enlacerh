@@ -1253,7 +1253,6 @@ public class FileUploadController extends Utils implements Serializable {
 				jndi = vltabla[0][0];
 			}
 		} catch (NamingException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return jndi;

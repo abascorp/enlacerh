@@ -748,7 +748,6 @@ public class SeguridadMenuBean extends Utils implements Serializable {
 						" from autos02 " +
 						" where  cedula like '" + cedula + "%' and isact = '1' and pcodcia = '" + pcodcia.toUpperCase() + "' and grupo = '" + grupo + "'", JNDI);
 			} catch (NamingException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} 
 	  		String[][] vltabla = consulta.getArray();
@@ -776,7 +775,6 @@ public class SeguridadMenuBean extends Utils implements Serializable {
 						" from autos01 " +
 						" where  coduser = trim('" + login.toUpperCase() + "')", JNDI);
 			} catch (NamingException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} 
 	  		String[][] vltabla = consulta.getArray();

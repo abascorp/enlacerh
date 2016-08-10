@@ -138,7 +138,6 @@ public class AutosrvThread extends Thread  implements Serializable {
 		   //System.out.println("Thread start");
 	   procAutosrv();
 	   } catch (NamingException | IOException e) {
-	   // TODO Auto-generated catch block
 	   e.printStackTrace();
 	   }
 	   }

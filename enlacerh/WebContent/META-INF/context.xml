@@ -47,7 +47,7 @@
  
      <Resource name="jdbc/opennomina" auth="Container"
               type="javax.sql.DataSource" driverClassName="oracle.jdbc.OracleDriver"
-              url="jdbc:oracle:thin:@localhost:1521:xe"
+              url="jdbc:oracle:thin:@192.168.1.45:1521:spi"
               username="OPENNOMINA" password="OPENNOMINA" maxActive="20" maxIdle="10"
               maxWait="-1"/> 
 
@@ -60,7 +60,7 @@
 		    mail.smtp.port="465"
 		    mail.smtp.auth="true"
 		    mail.smtp.user="noreply@dvconsultores.com"
-		    password="v12959363"
+		    password="v12959363E"
 		    mail.smtp.starttls.enable="true"
 		    mail.smtp.socketFactory.class="javax.net.ssl.SSLSocketFactory"
 		  />
@@ -72,7 +72,7 @@
 		    mail.smtp.port="465"
 		    mail.smtp.auth="true"
 		    mail.smtp.user="noreply@dvconsultores.com"
-		    password="v12959363"
+		    password="v12959363E"
 		    mail.smtp.starttls.enable="true"
 		    mail.smtp.socketFactory.class="javax.net.ssl.SSLSocketFactory"
 		  />		  

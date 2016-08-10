@@ -68,7 +68,7 @@
 <%	
 	boolean CHECKED = true;
 		
-	if ( parameterBean.allowNewValues( ) ) // TODO: Editable
+	if ( parameterBean.allowNewValues( ) ) 
 	{
 		CHECKED = parameterBean.isValueInList( ) 
 				  || paramValue == null
@@ -187,7 +187,7 @@
 %>
 		</SELECT>
 <%
-	if ( parameterBean.allowNewValues( ) ) // TODO: editable.
+	if ( parameterBean.allowNewValues( ) ) 
 	{
 %>
 		<BR>

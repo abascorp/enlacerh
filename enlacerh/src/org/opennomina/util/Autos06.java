@@ -652,7 +652,6 @@ import org.primefaces.model.SortOrder;
 	  		r.close();
 	  		
 	        } catch (SQLException | NamingException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 	  		

@@ -717,7 +717,6 @@ import org.primefaces.model.SortOrder;
 	        r.close();  
 	        
 	        } catch (SQLException | NamingException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 	
@@ -882,7 +881,6 @@ import org.primefaces.model.SortOrder;
 	        	  monto = encab[0][0];
 	        	  }
 	  		} catch (NamingException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 	  	}

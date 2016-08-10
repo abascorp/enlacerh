@@ -380,7 +380,6 @@ import org.primefaces.model.SortOrder;
 					consulta.selectPntGenerica(query, JNDI);
 					vrows  = consulta.getRows();
 				} catch (NamingException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 				//System.out.println(vrows);
@@ -411,7 +410,6 @@ import org.primefaces.model.SortOrder;
 					consulta.selectPntGenerica(query, JNDI);
 					vrows  = consulta.getRows();
 				} catch (NamingException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 				//System.out.println(vrows);

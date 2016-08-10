@@ -682,7 +682,6 @@ import org.primefaces.model.SortOrder;
 	    	r.close();
 	    	
 			} catch (NamingException | SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}    
 	
@@ -864,7 +863,6 @@ import org.primefaces.model.SortOrder;
 	        	  disponible = encab[0][3];
 	        	  }
 	  		} catch (NamingException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 	  	}

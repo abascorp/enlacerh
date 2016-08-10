@@ -42,17 +42,14 @@
 				<p:toolbar> 
 				  
                  <f:facet name="left">
-                   
-                    
+                                       
                  &nbsp;
                  <h:outputLabel value="#{autos10.nombre1}&nbsp;#{autos10.apell1}" styleClass="tituloCia"/>
 		         &nbsp;
 		         <p:commandLink icon="ui-icon-newwin" styleClass="btn btn-success"  immediate="true" title="#{msg.autonomDatos}"
                  onclick="$('#myModal').modal('show')"  >
                  <i class="fa fa-street-view fa-2x"></i>
-                 </p:commandLink>
-                 
-                 
+                 </p:commandLink>                                 
                  
                  </f:facet>   
                               	         
@@ -175,37 +172,37 @@
             </p:outputPanel>         
             </f:facet>       
             
-            <p:column sortBy="#{tb.vanio}" styleClass="wrap" style="width:30px">  
+            <p:column sortBy="#{tb.vanio}" styleClass="wrap" style="width:30px;text-align:center" >  
             <f:facet name="header">#{msg.autoimpTbAnoimp}</f:facet> 
             <h:outputLabel value="#{tb.vanoimp}" />  
             </p:column>  
             
-            <p:column styleClass="wrap" style="width:30px">  
+            <p:column styleClass="wrap" style="width:30px;text-align:center">  
             <f:facet name="header">#{msg.autoimpTbMesimp} </f:facet> 
             <h:outputLabel value="#{tb.vmesimp}" />  
             </p:column>  
             
-            <p:column styleClass="wrap" style="width:50px">  
+            <p:column styleClass="wrap" style="width:50px;text-align:right">  
             <f:facet name="header">#{msg.autoimpTbRemmes}</f:facet> 
             <h:outputLabel value="#{tb.vremmes}" />  
             </p:column>  
             
-            <p:column style="width:50px" > 
+            <p:column style="width:50px;text-align:right" > 
             <f:facet name="header">#{msg.autoimpTbPorret} </f:facet> 
             <h:outputLabel style="font-weight:bold;" value="#{tb.vporret}" />  
             </p:column>  
             
-            <p:column style="width:50px" >
+            <p:column style="width:50px;text-align:right" >
             <f:facet name="header">#{msg.autoimpTbRetmes} </f:facet> 
             <h:outputLabel value="#{tb.vretmes}" />  
             </p:column>              
 
-            <p:column style="width:50px" >  
+            <p:column style="width:50px;text-align:right" >  
             <f:facet name="header">#{msg.autoimpTbRemacu} </f:facet> 
             <h:outputLabel value="#{tb.vremacu}" />  
             </p:column>  
                         
-            <p:column style="width:50px" > 
+            <p:column style="width:50px;text-align:right" > 
             <f:facet name="header">#{msg.autoimpTbRetacu} </f:facet> 
             <h:outputLabel value="#{tb.vretacu}" />  
             </p:column>                                               

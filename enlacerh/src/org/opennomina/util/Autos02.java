@@ -607,7 +607,6 @@ import org.primefaces.context.RequestContext;
 			try {
 				consulta.selectPntGenerica(query, JNDI);
 			} catch (NamingException  e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		
@@ -921,7 +920,6 @@ import org.primefaces.context.RequestContext;
 						" from autos02 " +
 						" where  cedula like '" + cedula + "%' and isact = '1' and pcodcia = '" + pcodcia.toUpperCase() + "' and grupo = '" + grupo + "'", JNDI);
 			} catch (NamingException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} 
 	  		String[][] vltabla = consulta.getArray();
@@ -980,7 +978,6 @@ import org.primefaces.context.RequestContext;
 			}
 			
 			} catch (NamingException | NumberFormatException | IOException | InterruptedException e) {
-				// TODO Auto-generated catch block
 				msj = new FacesMessage(FacesMessage.SEVERITY_FATAL, e.getMessage(), "");
 				FacesContext.getCurrentInstance().addMessage(null, msj);
 				e.printStackTrace();
@@ -1035,7 +1032,6 @@ import org.primefaces.context.RequestContext;
 			}
 			
 			} catch (NamingException | NumberFormatException | IOException | InterruptedException e) {
-				// TODO Auto-generated catch block
 				msj = new FacesMessage(FacesMessage.SEVERITY_FATAL, e.getMessage(), "");
 				FacesContext.getCurrentInstance().addMessage(null, msj);
 				e.printStackTrace();
@@ -1191,7 +1187,6 @@ import org.primefaces.context.RequestContext;
 					jndi = vltabla[0][0];
 				}
 			} catch (NamingException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			return jndi;
@@ -1213,7 +1208,6 @@ import org.primefaces.context.RequestContext;
 								" and CAST(mes AS text) = '" + mes + "' and  trim(cedula) like '" + cedula + "%' " +
 										"and CAST(periodo AS text) like trim('" + periodo + "%') and id like trim('" + id + "%') and trim(pcodcia) in (select max(pcodcia) from autos02 where cast(anio as text) like '" + anio +  "' and cast(mes as text) like '" + mes + "' and cedula like '" + cedula + "%')" , JNDI);
 			} catch (NamingException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} 
 	

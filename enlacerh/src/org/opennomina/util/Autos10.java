@@ -555,9 +555,9 @@ import org.primefaces.model.SortOrder;
 	  		switch ( productName ) {
 	        case "Oracle":
 	        	//Consulta paginada
-	        	query = "  select * from ";
+	        	query = "  select ANOIMP, MESIMP, REMMES, PORRET, RETMES, REMACU, RETACU, RN from ";
 	        	query += " ( select query.*, rownum as rn from";
-		  		query += " ( SELECT ANOIMP, MESIMP||'-'||MESLET MESIMP";
+		  		query += " ( SELECT ANOIMP, MESIMP||'-'||MESLET MESIMP, MESIMP MESCAL";
 		        query += " , to_char(REMMES,'999,999,999.99') REMMES";
 		        query += " , to_char(PORRET,'999,999,999.99') PORRET";
 		        query += " , to_char(RETMES,'999,999,999.99') RETMES";
@@ -572,7 +572,7 @@ import org.primefaces.model.SortOrder;
 		        query += " and grupo = '" + grupo + "'";
 		        query += " ) query";
 			     query += " ) where rownum <= " + pageSize ;
-			     query += " and rn > (" + first + ")";
+			     query += " and rn > (" + first + ") order by ANOIMP DESC, MESCAL DESC ";
 	             break;
 	        case "PostgreSQL":
 	        	//Consulta paginada
@@ -625,7 +625,6 @@ import org.primefaces.model.SortOrder;
 	        r.close();
 	  		
 	  		 } catch (SQLException | NamingException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 			}
 	  	
@@ -785,7 +784,6 @@ import org.primefaces.model.SortOrder;
 	        	  utidis = encab[0][0];
 	        	  }
 	  		} catch (NamingException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 	  	}		

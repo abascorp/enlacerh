@@ -424,7 +424,6 @@
 		    		  cedula = Integer.parseInt(vltabla[0][0]);
 		    	  }
 			} catch (NamingException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 	    	 return cedula; 
@@ -444,7 +443,6 @@
 		    		  codval = vltabla[0][0];
 		    	  }
 			} catch (NamingException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 	    	 return codval; 
@@ -463,7 +461,6 @@
 		    		  codval = vltabla[0][0];
 		    	  }
 			} catch (NamingException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 	    	 return codval; 
@@ -482,7 +479,6 @@
 		    		  codval = vltabla[0][0];
 		    	  }
 			} catch (NamingException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 	    	 return codval; 

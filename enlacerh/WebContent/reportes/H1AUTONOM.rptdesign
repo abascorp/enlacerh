@@ -103,9 +103,9 @@
                 </ex-property>
             </list-property>
             <property name="odaDriverClass">oracle.jdbc.OracleDriver</property>
-            <property name="odaURL">jdbc:oracle:thin:@190.121.232.59:54752:SPI</property>
+            <property name="odaURL">jdbc:oracle:thin:@192.168.1.45:1521:SPI</property>
             <property name="odaUser">INFOCENT</property>
-            <encrypted-property name="odaPassword" encryptionID="base64">ZmFsY29uMzVoYg==</encrypted-property>
+            <encrypted-property name="odaPassword" encryptionID="base64">RkFMQ09OMzVIQg==</encrypted-property>
             <property name="odaJndiName">jdbc/spi</property>
         </oda-data-source>
     </data-sources>

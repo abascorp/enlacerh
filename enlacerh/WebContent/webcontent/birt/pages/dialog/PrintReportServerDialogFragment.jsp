@@ -51,11 +51,11 @@
 				
 			if ( bean.getStatus() == Printer.STATUS_ACCEPTING_JOBS )
 			{
-				status = BirtResources.getMessage( "birt.viewer.dialog.printserver.status.acceptingjobs" ); // TODO: localized key
+				status = BirtResources.getMessage( "birt.viewer.dialog.printserver.status.acceptingjobs" ); 
 			}
 			else 
 			{
-				status = BirtResources.getMessage( "birt.viewer.dialog.printserver.status.notacceptingjobs" ); // TODO: localized key
+				status = BirtResources.getMessage( "birt.viewer.dialog.printserver.status.notacceptingjobs" ); 
 			}
 			status = DataUtil.trimString( status );
 			

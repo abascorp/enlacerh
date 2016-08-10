@@ -29,45 +29,47 @@
 <h:body>
  <f:view>
  <!-- Top-->
-	<ui:include src="common/top.xhtml" />
+   <ui:include src="common/top.xhtml" />
    <div id="wrapper">
 	<!-- MenÃº-->
 	<ui:include src="common/menu.xhtml" />
-	
-
 	 <div class="container-fluid" id="containerF">
+	
 	<h:form id="formAutoSNomina" enctype="multipart/form-data" >
-	 <!-- Div para colocar botones -->
+	
+	            <!-- Div para colocar botones -->
 				<div id="botones">              
 				<p:toolbar>  
-                 <f:facet name="left">  
-                <p:commandButton id="btnBus"  title="#{msg.htmlbuscar}" styleClass="botonUn" accesskey="b" update="panelBusqueda ,tbResult, growl"
-                 action="#{autos02.select}" value="#{msg.html55}" actionListener="#{smnubean.opcAutosrv(loginBean.logged)}" icon="fa fa-search">           
-                </p:commandButton>
-                
 
-	           
-                <p:commandButton icon="fa fa-refresh" styleClass="botonUn" update="tbResult, panelBusqueda, growl" process="@this"  
-                title="#{msg.htmlr}"    accesskey="l">  
-                 <p:resetInput target="panelBusqueda" /> 
-                 </p:commandButton>                    
-                 </f:facet>   
+                <f:facet name="left">  
+                
+                &nbsp;
+                <h:outputLabel value="#{autos02.nombre1}&nbsp;#{autos02.apell1}" styleClass="tituloCia"/>
+			    &nbsp;
+			    <p:commandLink icon="ui-icon-newwin" styleClass="btn btn-success"  immediate="true" title="#{msg.autonomDatos}"
+	            onclick="$('#myModal').modal('show')"  >
+	            <i class="fa fa-street-view fa-2x"></i>
+	            </p:commandLink> 
+                
+                </f:facet>   
+                
                 </p:toolbar>  
+				
 				</div><br/>
 								
-				   <!-- Mensaje e imagen --> 		
-			      <div id="encabezados">   
-				  <p:growl globalOnly="true" id="growl" life="30000"/>
-				  <ui:include src="common/loader1.xhtml"/>
-				  </div> 
+			    <!-- Mensaje e imagen --> 		
+		        <div id="encabezados">   
+			    <p:growl globalOnly="true" id="growl" life="30000"/>
+			    <ui:include src="common/loader1.xhtml"/>
+			    </div> 
 				  
-							
 				<!-- Panel -->
-			 <div class="panel panel-default" style="margin-top: 15px; margin-bottom: 10px">
-		     <div class="panel-body">
+			    <div class="panel panel-default" style="margin-top: 15px; margin-bottom: 10px">
+		        <div class="panel-body">
 		     
 		   <p:panel id="panelBusqueda" style="white-space: normal;" header="#{msg.autonomtit}" toggleable="true"  toggleSpeed="500" >  	     
-            <h:panelGrid   columns="1"  >	         
+            <h:panelGrid   columns="4"  >	
+                     
 			     <p:inputText id="anio" placeholder="#{msg.autoonomAnio}" maxlength="4" value="#{autos02.anio}"  style="width: 60px;" styleClass="form-control" converter="javax.faces.Integer" converterMessage="#{utils.getMessage('isInt')}" required="true"  requiredMessage="#{utils.getMessage('html43')}"/>  
 			     <p:message for="anio"/>
 			     <h:selectOneMenu id="mes" value="#{autos02.mes}" effect="highlight" required="true"  requiredMessage="#{utils.getMessage('html43')}">
@@ -75,7 +77,17 @@
                  <f:selectItems  value="#{listBean.meses}"/>    
                  </h:selectOneMenu>               
                  <p:message for="mes"/>
-               <p:spacer height="3"/>
+               
+                 <p:commandButton id="btnBus"  title="#{msg.htmlbuscar}" styleClass="botonUn" accesskey="b" update="panelBusqueda ,tbResult, growl"
+                 action="#{autos02.select}" value="#{msg.html55}" actionListener="#{smnubean.opcAutosrv(loginBean.logged)}" icon="fa fa-search">           
+                 </p:commandButton>
+                
+
+	           
+                <p:commandButton icon="fa fa-refresh" styleClass="botonUn" update="tbResult, panelBusqueda, growl" process="@this"  
+                title="#{msg.htmlr}"    accesskey="l">  
+                 <p:resetInput target="panelBusqueda" /> 
+                 </p:commandButton>   
 	           <!-- OPCION DESHABILITADA A PETICION DEL CLIENTE 
 	           <h:selectOneMenu value="#{autos02.constancia}"  id="tipconst" rendered="#{smnubean.autoconst}" >
 	           <f:selectItems value="#{listBean.opcconst}"/>
@@ -84,12 +96,7 @@
 	            
 		    </h:panelGrid> 
 		    <f:facet name="footer">		    
-		    <h:outputLabel value="#{autos02.nombre1}&nbsp;#{autos02.apell1}" styleClass="tituloCia"/>
-		    &nbsp;
-		    <p:commandLink icon="ui-icon-newwin" styleClass="btn btn-info"  immediate="true" title="#{msg.autonomDatos}"
-            onclick="$('#myModal').modal('show')"  >
-            <i class="fa fa-bars fa-2x"></i>
-            </p:commandLink> 
+
 	        </f:facet>        
            </p:panel><br/>
        
