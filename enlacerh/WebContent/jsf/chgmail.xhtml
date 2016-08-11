@@ -37,6 +37,24 @@
 	 <div class="container-fluid" id="containerF">
 	<h:form id="formChgmail"  >
 
+	            <!-- Div para colocar botones -->
+				<div id="botones">              
+				<p:toolbar>  
+
+                <f:facet name="left">  
+                &nbsp;
+                <h:outputLabel value="#{autos02.nombre1}&nbsp;#{autos02.apell1}" styleClass="tituloCia"/>
+			    &nbsp;
+			    <p:commandLink icon="ui-icon-newwin" styleClass="btn btn-success"  immediate="true" title="#{msg.autonomDatos}"
+	            onclick="$('#myModal').modal('show')"  >
+	            <i class="fa fa-street-view fa-2x"></i>
+	            </p:commandLink> 
+                </f:facet>   
+                
+                </p:toolbar>  
+				
+				</div><br/>
+
          	  <!-- Mensaje e imagen --> 		
 			     <div id="encabezados">   
 				  <p:growl globalOnly="true" id="growl" life="30000"/>
@@ -46,7 +64,6 @@
 		 
 		 	<!-- Panel -->
 			 <div class="panel panel-default" style="margin-top: 20px; margin-bottom: 10px">
-		     <div class="panel-body">
 		         <p:panel id="panel"  header="#{msg.regchgmail}" >	     	         
 		         <h:panelGrid  columns="1">	         
 	             <p:inputText id="mail" placeholder="#{msg.regmail}" style="height: 45px;" styleClass="form-control" maxlength="150"   value="#{registro.mail}" required="true" requiredMessage="#{utils.getMessage('html43')}" validatorMessage="#{utils.getMessage('autos01IngMail1')}">
@@ -61,9 +78,67 @@
 	            <h:outputText value="#{msg.mailEstado}"/>
 	            <h:outputText styleClass="tituloCia" value="#{validaEstadoCuentaCorreo.estadomail}" />
 		        </h:panelGrid>
-	            </p:panel><br/><br/>
-	        </div>
+	            </p:panel><br/>
 	        </div>    
+
+           <!-- Modal Indice ciclo 1-->
+	<div class="modal fade modal-wide" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+
+	      <div class="modal-body">
+	      <div class="panel panel-info">
+	      <div class="panel-heading">#{msg.autonomDatos}</div>
+	       <div class="container-fluid">
+	       <div class="panel-body">
+	       <div class="row">
+	        <div class="col-md-3"><img src="#{autos02.imagen()}" class="img-rounded" title="#{msg.autonomImg}"  alt="user" width="180" height="200" onclick="upload();" ondblclick="uploadC();"/></div>
+	        <div class="col-md-3" style="font-weight: bold;">#{msg.autonomCia}</div>
+	        <div class="col-md-6" >#{autos02.codcia}</div>
+	        <div class="col-md-3" style="font-weight: bold;">#{msg.autonomNom}</div>
+	        <div class="col-md-6" >#{autos02.ptipnom}</div>
+	        <div class="col-md-3" style="font-weight: bold;">#{msg.autonomFictra}</div>
+	        <div class="col-md-6" >#{autos02.pfictra}</div>
+	        <div class="col-md-3" style="font-weight: bold;">#{msg.autonomApell}</div>
+	        <div class="col-md-6" >#{autos02.apell1}</div>
+	        <div class="col-md-3" style="font-weight: bold;">#{msg.autonomNbr}</div>
+	        <div class="col-md-6" >#{autos02.nombre1}</div>
+	        <div class="col-md-3" style="font-weight: bold;">#{msg.autonomIng}</div>
+	        <div class="col-md-6" >#{autos02.fecing}</div>
+	        <div class="col-md-3" style="font-weight: bold;">#{msg.autonomSueld}</div>
+	        <div class="col-md-6" >#{autos02.sueld1}</div>
+	        <div class="col-md-3" style="font-weight: bold;">#{msg.autonomCgo}</div>
+	        <div class="col-md-6" >#{autos02.pcodcar}</div>
+	        <div class="col-md-3" style="font-weight: bold;">#{msg.autonomLoc}</div>
+	        <div class="col-md-6" >#{autos02.pcodloc}</div>
+	        <div class="col-md-3" style="font-weight: bold;">#{msg.autonomSuc}</div>
+	        <div class="col-md-6" >#{autos02.pcodsuc}</div>
+	        <div class="col-md-3" style="font-weight: bold;">#{msg.autonomUni}</div>
+	        <div class="col-md-6" >#{autos02.pcoduni}</div>
+	        <div class="col-md-3" style="font-weight: bold;">#{msg.autonomDep}</div>
+	        <div class="col-md-6" >#{autos02.pcoddep}</div>
+	        </div>	<br/>
+	        <div id="upload" style="display: none;margin-bottom: 10px">                
+           <p:fileUpload fileUploadListener="#{fileUploadController.handleImageUpload}"
+            mode="advanced"
+            update="growl" 
+            cancelLabel="#{msg.autos02Cancel}" 
+            label="#{msg.autos02Sel}"
+            uploadLabel="#{msg.autos02Up}">
+            <f:attribute name="coduser" value="#{loginBean.logged}" />	
+            </p:fileUpload>
+            </div>    
+		  </div>
+		  </div>
+	      </div>
+
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-info" data-dismiss="modal">#{msg.aceC}</button>
+	       </div>
+	    </div>
+	  </div>
+	</div>               
 				
 				
             &#160;<p:commandButton value="#{msg.chgmailButton}" 

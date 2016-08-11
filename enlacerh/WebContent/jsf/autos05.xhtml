@@ -39,14 +39,17 @@
             <!-- Div para colocar botones -->
 				<div id="botones">              
 				<p:toolbar>  
-                 <f:facet name="left"> 
-                  <p:commandButton id="btnBus" icon="fa fa-search" title="#{msg.htmlb}" styleClass="botonUn" accesskey="b" update="tbResult, growl"
-                  value="#{msg.html49}"/>
-                  <p:commandButton icon="fa fa-refresh" styleClass="botonUn" update="tbResult, growl, panelBusqueda" process="@this"  
-                title="#{msg.htmlr}"    accesskey="l" >  
-                 <p:resetInput target="panelBusqueda" /> 
-                 </p:commandButton>      
-                 </f:facet>   
+                <f:facet name="left"> 
+                 
+                &nbsp;
+                <h:outputLabel value="#{autos02.nombre1}&nbsp;#{autos02.apell1}" styleClass="tituloCia"/>
+			    &nbsp;
+			    <p:commandLink icon="ui-icon-newwin" styleClass="btn btn-success"  immediate="true" title="#{msg.autonomDatos}"
+	            onclick="$('#myModal').modal('show')"  >
+	            <i class="fa fa-street-view fa-2x"></i>
+	            </p:commandLink> 
+                 
+                </f:facet>   
                 </p:toolbar>  
 				</div><br/>
 				
@@ -57,31 +60,38 @@
 				  </div> 	
 				
 			<!-- Panel -->
-			 <div class="panel panel-default" style="margin-top: 15px; margin-bottom: 10px">
-		     <div class="panel-body">
+			<div class="panel panel-default" style="margin-top: 15px; margin-bottom: 10px">
+			
 			<p:panel id="panelBusqueda" style="white-space: normal;" header="#{msg.autointtit}" toggleable="true"  toggleSpeed="500" >
-            <h:panelGrid  columns="1" >	      
-			     <p:inputText id="anio" placeholder="#{msg.autointAnio}" style="height: 45px;" styleClass="form-control" maxlength="4" value="#{autos05.anio}"/>        
-			     <h:selectOneMenu id="mes" value="#{autos05.mes}" effect="highlight">
-			     <f:selectItem itemValue="#{null}" itemLabel="#{msg.autos02Opc0}" />
-                 <f:selectItems  value="#{listBean.meses}"/>
-                 </h:selectOneMenu>
+			<h:panelGrid  columns="9" >	      
+			
+			<p:inputText id="anio" placeholder="#{msg.autointAnio}" style="height: 35px;width: 60px" styleClass="form-control" maxlength="4" value="#{autos05.anio}"/>        
+			&nbsp;
+			<h:selectOneMenu id="mes" value="#{autos05.mes}" style="height: 35px;" effect="highlight">
+			<f:selectItem itemValue="#{null}" itemLabel="#{msg.autos02Opc0}" />
+			<f:selectItems  value="#{listBean.meses}"/>
+            </h:selectOneMenu>
+            &nbsp;                 
+			<p:commandButton id="btnBus" icon="fa fa-search" style="height: 35px;" title="#{msg.htmlb}" styleClass="botonUn" accesskey="b" update="tbResult, growl"
+			value="#{msg.html49}"/>
+			&nbsp;
+			<p:commandButton icon="fa fa-refresh" styleClass="botonUn" style="height: 35px;" update="tbResult, growl, panelBusqueda" process="@this"  
+			title="#{msg.htmlr}"    accesskey="l" >  
+			<p:resetInput target="panelBusqueda" /> 
+			</p:commandButton>                  
+                 
+
 		    </h:panelGrid>   
-		    <f:facet name="footer">		    
-		    <h:outputLabel value="#{autos05.nombre1}&nbsp;#{autos05.apell1}" styleClass="tituloCia"/>
-		    &nbsp;
-		    <p:commandLink icon="ui-icon-newwin" styleClass="btn btn-info"  immediate="true" title="#{msg.autonomDatos}"
-            onclick="$('#myModal').modal('show')"  >
-            <i class="fa fa-bars fa-2x"></i>
-            </p:commandLink> 
-	        </f:facet>        
-           </p:panel><br/>
-           <p:panel>
-           <div class="container-fluid">     
-	       <div class="row">
-	       <div class="col-md-3" >#{msg.autointEncabMonto}</div>
-	       <div class="col-md-3" style="font-weight: bold;">#{autos05.monto} </div>
-	       </div>
+		    
+      
+	         
+            </p:panel>
+            <p:panel>
+            <div class="container-fluid">     
+	        <div class="row">
+	        <div class="col-md-3" >#{msg.autointEncabMonto}</div>
+	        <div class="col-md-3" style="font-weight: bold;">#{autos05.monto} </div>
+	        </div>
 	        </div>
 	        </p:panel>
              
@@ -145,8 +155,7 @@
 	  </div>
 	 </div>    
            
-           
-              </div>
+
            </div>
            
            <!-- Tabla con el resultado -->

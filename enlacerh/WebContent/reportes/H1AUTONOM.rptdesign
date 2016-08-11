@@ -2271,7 +2271,7 @@ TO_CHAR(PER.ANOCAL)||'-'||TRIM(TO_CHAR(PER.MESCAL-1,'00'))]]></xml-property>
         </label>
         <grid id="3475">
             <property name="fontSize">8pt</property>
-            <property name="height">0.675in</property>
+            <property name="height">0.7333333333333333in</property>
             <property name="width">7.958333333333333in</property>
             <column id="3476">
                 <property name="width">4.266666666666667in</property>
@@ -2453,7 +2453,7 @@ TO_CHAR(PER.ANOCAL)||'-'||TRIM(TO_CHAR(PER.MESCAL-1,'00'))]]></xml-property>
                 </cell>
             </row>
             <row id="3493">
-                <property name="height">0.23333333333333334in</property>
+                <property name="height">0.2916666666666667in</property>
                 <cell id="3494">
                     <property name="fontSize">x-small</property>
                     <property name="textAlign">right</property>

@@ -1,23 +1,6 @@
 <?xml version='1.0' encoding='UTF-8' ?>
-<!-- 
-     Copyright (C) 2011  ANDRES DOMINGUEZ
-
-    Este programa es software libre: usted puede redistribuirlo y/o modificarlo 
-    bajo los términos de la Licencia Pública General GNU publicada 
-    por la Fundación para el Software Libre, ya sea la versión 3 
-    de la Licencia, o (a su elección) cualquier versión posterior.
 
 
-    Este programa se distribuye con la esperanza de que sea útil, pero 
-    SIN GARANTÍA ALGUNA; ni siquiera la garantía implícita 
-    MERCANTIL o de APTITUD PARA UN PROPÓSITO DETERMINADO. 
-    Consulte los detalles de la Licencia Pública General GNU para obtener 
-    una información más detallada. 
-
-    Debería haber recibido una copia de la Licencia Pública General GNU 
-    junto a este programa. 
-    En caso contrario, consulte <http://www.gnu.org/licenses/>.
- -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
@@ -58,7 +41,9 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#page-top">EnlaceRH</a>
+                <a class="navbar-brand" href="#page-top"> <h:graphicImage value="resources/img/enlacerh.png" height="30" /> </a>
+                 
+                
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -100,7 +85,7 @@
          <div style="max-width: 400px;opacity: 1;">
          <div class="panel panel-primary">
          <div class="panel-heading"><center>Inicio de sesión</center></div>
-         <center><h:graphicImage value="resources/img/user_login.png" height="90" /> </center>  
+         <center><h:graphicImage value="resources/img/user_login2.png" height="120" /> </center>  
           <div class="panel-body">
            <h:panelGrid  id="panel" columns="1" width="80%" >
             <p:inputText id="usuario" placeholder="#{msg.logUsuario}" styleClass="form-control" style="height:50px; margin-bottom: 10px;"  maxlength="30"  required="true"  requiredMessage="#{utils.getMessage('loginuser')}" value="#{loginBean.usuario}"/>
@@ -177,7 +162,7 @@
          <div style="max-width: 400px;opacity: 0.9;">
          <div class="panel panel-primary">
          <div class="panel-heading"><center>#{msg.recclave}</center></div>
-         <center><h:graphicImage value="resources/img/user_login.png" height="90" /> </center>  
+         <center><h:graphicImage value="resources/img/user_login2.png" height="90" /> </center>  
           <div class="panel-body">
            <h:panelGrid  id="panelcl" columns="1" width="80%" >
             <p:inputText id="usuariocl" placeholder="#{msg.logUsuario}" styleClass="form-control" style="height:50px; margin-bottom: 10px;"  maxlength="30"  required="true"  requiredMessage="#{utils.getMessage('loginuser')}" value="#{sendmail.usuario}"/>

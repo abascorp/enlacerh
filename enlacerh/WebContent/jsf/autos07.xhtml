@@ -36,19 +36,22 @@
 	 <div class="container-fluid" id="containerF">
 	<h:form id="formAutoSUtil" enctype="multipart/form-data" >
 
-           <!-- Div para colocar botones -->
-				<div id="botones">              
-				<p:toolbar>  
-                 <f:facet name="left"> 
-                  <p:commandButton id="btnBus" icon="fa fa-search" title="#{msg.htmlb}" styleClass="botonUn" accesskey="b" update="tbResult, growl"
-                  value="#{msg.html49}" />
-                  <p:commandButton icon="fa fa-refresh" styleClass="botonUn" update="tbResult, growl, panelBusqueda" process="@this"  
-                title="#{msg.htmlr}"    accesskey="l" >  
-                 <p:resetInput target="panelBusqueda" /> 
-                 </p:commandButton>    
-                 </f:facet>   
-                </p:toolbar>  
-				</div><br/>
+			<!-- Div para colocar botones -->
+			<div id="botones">              
+			<p:toolbar>  
+			
+			<f:facet name="left"> 
+			&nbsp;
+			<h:outputLabel value="#{autos07.nombre1}&nbsp;#{autos07.apell1}" styleClass="tituloCia"/>
+		    &nbsp;
+		    <p:commandLink icon="ui-icon-newwin" styleClass="btn btn-success"   immediate="true" title="#{msg.autonomDatos}"
+            onclick="$('#myModal').modal('show')"  >
+            <i class="fa fa-street-view fa-2x"></i>
+            </p:commandLink> 
+			</f:facet>   
+			
+			</p:toolbar>  
+			</div><br/>
 				
 			 <!-- Mensaje e imagen --> 		
 			      <div id="encabezados">   
@@ -58,24 +61,33 @@
 				
 				<!-- Panel -->
 			 <div class="panel panel-default" style="margin-top: 15px; margin-bottom: 10px">
-		     <div class="panel-body">
 			<p:panel id="panelBusqueda" style="white-space: normal;" header="#{msg.autoutiltit}" toggleable="true"  toggleSpeed="500" >
-            <h:panelGrid  columns="1"  >	         
-			     <p:inputText id="anio" placeholder="#{msg.autoutilAnio}" style="height: 45px;" styleClass="form-control" maxlength="4" value="#{autos07.anio}"/>  
-			     <h:selectOneMenu id="mes" value="#{autos07.mes}" styleClass="listPag" effect="highlight">
+            <h:panelGrid  columns="9"  >	         
+			     <p:inputText id="anio" placeholder="#{msg.autoutilAnio}" style="height: 35px;width: 60px" styleClass="form-control" maxlength="4" value="#{autos07.anio}"/>  
+			     &nbsp;
+			     <h:selectOneMenu id="mes" style="height: 35px" value="#{autos07.mes}" styleClass="listPag" effect="highlight">
 			     <f:selectItem itemValue="#{null}" itemLabel="#{msg.autos02Opc0}" />
                  <f:selectItems  value="#{listBean.meses}"/>
                  </h:selectOneMenu>
+				&nbsp;
+				<p:commandButton id="btnBus" style="height: 35px" icon="fa fa-search" title="#{msg.htmlb}" styleClass="botonUn" accesskey="b" update="tbResult, growl"
+				value="#{msg.html49}" />
+				&nbsp;
+				<p:commandButton icon="fa fa-refresh"  style="height: 35px" styleClass="botonUn" update="tbResult, growl, panelBusqueda" process="@this"  
+				title="#{msg.htmlr}"    accesskey="l" >  
+				<p:resetInput target="panelBusqueda" /> 
+				</p:commandButton>   
+
+		        &nbsp;
+		        <p:commandButton  title="#{msg.html10}" style="height: 35px;" immediate="true" icon="fa fa-print" styleClass="botonPag" accesskey="p" value="#{msg.html56}"
+		        onclick="imprimirSolicitud('#{autos07.pcodcia}AUTOUTI_SOLICITUD','#{autos07.pfictra}');">
+		        </p:commandButton>	
+
 		    </h:panelGrid> 
-		     <f:facet name="footer">		    
-		    <h:outputLabel value="#{autos07.nombre1}&nbsp;#{autos07.apell1}" styleClass="tituloCia"/>
-		    &nbsp;
-		  <p:commandLink icon="ui-icon-newwin" styleClass="btn btn-info"  immediate="true" title="#{msg.autonomDatos}"
-            onclick="$('#myModal').modal('show')"  >
-            <i class="fa fa-bars fa-2x"></i>
-            </p:commandLink>
+		     <f:facet name="footer">
+
 	        </f:facet>          
-           </p:panel><br/>
+           </p:panel>
            <p:panel>
            <div class="container-fluid">     
 	       <div class="row">
@@ -144,8 +156,6 @@
 	  </div>
 	 </div>    
            
-           
-           </div>
            </div>
            
            <!-- Tabla con el resultado -->

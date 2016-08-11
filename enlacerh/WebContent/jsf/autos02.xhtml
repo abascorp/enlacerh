@@ -42,7 +42,6 @@
 				<p:toolbar>  
 
                 <f:facet name="left">  
-                
                 &nbsp;
                 <h:outputLabel value="#{autos02.nombre1}&nbsp;#{autos02.apell1}" styleClass="tituloCia"/>
 			    &nbsp;
@@ -50,7 +49,6 @@
 	            onclick="$('#myModal').modal('show')"  >
 	            <i class="fa fa-street-view fa-2x"></i>
 	            </p:commandLink> 
-                
                 </f:facet>   
                 
                 </p:toolbar>  
@@ -63,42 +61,41 @@
 			    <ui:include src="common/loader1.xhtml"/>
 			    </div> 
 				  
-				<!-- Panel -->
-			    <div class="panel panel-default" style="margin-top: 15px; margin-bottom: 10px">
-		        <div class="panel-body">
-		     
-		   <p:panel id="panelBusqueda" style="white-space: normal;" header="#{msg.autonomtit}" toggleable="true"  toggleSpeed="500" >  	     
-            <h:panelGrid   columns="4"  >	
+				 <!-- Panel -->
+			     <div class="panel panel-default" style="margin-top: 15px; margin-bottom: 5px">
+		       
+		         <p:panel id="panelBusqueda" style="white-space: normal;" header="#{msg.autonomtit}" toggleable="false"  toggleSpeed="500" >  	     
+                 <h:panelGrid   columns="9"  >	
                      
-			     <p:inputText id="anio" placeholder="#{msg.autoonomAnio}" maxlength="4" value="#{autos02.anio}"  style="width: 60px;" styleClass="form-control" converter="javax.faces.Integer" converterMessage="#{utils.getMessage('isInt')}" required="true"  requiredMessage="#{utils.getMessage('html43')}"/>  
+                 <p:inputText id="anio" placeholder="#{msg.autoonomAnio}" maxlength="4" value="#{autos02.anio}"  style="height: 35px;width: 60px" styleClass="form-control" converter="javax.faces.Integer" converterMessage="#{utils.getMessage('isInt')}" required="true"  requiredMessage="#{utils.getMessage('html43')}"/>  
 			     <p:message for="anio"/>
-			     <h:selectOneMenu id="mes" value="#{autos02.mes}" effect="highlight" required="true"  requiredMessage="#{utils.getMessage('html43')}">
+			     &nbsp;
+			     <h:selectOneMenu id="mes" value="#{autos02.mes}" effect="highlight" required="true" style="height: 35px" requiredMessage="#{utils.getMessage('html43')}">
 			     <f:selectItem itemValue="#{null}" itemLabel="#{msg.autos02Opc0}" />
                  <f:selectItems  value="#{listBean.meses}"/>    
                  </h:selectOneMenu>               
                  <p:message for="mes"/>
-               
-                 <p:commandButton id="btnBus"  title="#{msg.htmlbuscar}" styleClass="botonUn" accesskey="b" update="panelBusqueda ,tbResult, growl"
+                 &nbsp;
+                 <p:commandButton id="btnBus"  title="#{msg.htmlbuscar}" style="height: 35px;" styleClass="botonUn" accesskey="b" update="panelBusqueda ,tbResult, growl"
                  action="#{autos02.select}" value="#{msg.html55}" actionListener="#{smnubean.opcAutosrv(loginBean.logged)}" icon="fa fa-search">           
                  </p:commandButton>
-                
-
-	           
-                <p:commandButton icon="fa fa-refresh" styleClass="botonUn" update="tbResult, panelBusqueda, growl" process="@this"  
-                title="#{msg.htmlr}"    accesskey="l">  
+	             &nbsp;
+                 <p:commandButton icon="fa fa-refresh" styleClass="botonUn" style="height: 35px;" update="tbResult, panelBusqueda, growl" process="@this"  
+                 title="#{msg.htmlr}"    accesskey="l">  
                  <p:resetInput target="panelBusqueda" /> 
                  </p:commandButton>   
-	           <!-- OPCION DESHABILITADA A PETICION DEL CLIENTE 
-	           <h:selectOneMenu value="#{autos02.constancia}"  id="tipconst" rendered="#{smnubean.autoconst}" >
-	           <f:selectItems value="#{listBean.opcconst}"/>
-	           <p:ajax event="change" update="const" />
-	           </h:selectOneMenu> -->
+	           
+	            <!-- OPCION DESHABILITADA A PETICION DEL CLIENTE 
+	            <h:selectOneMenu value="#{autos02.constancia}"  id="tipconst" rendered="#{smnubean.autoconst}" >
+	            <f:selectItems value="#{listBean.opcconst}"/>
+	            <p:ajax event="change" update="const" />
+	            </h:selectOneMenu> -->
 	            
 		    </h:panelGrid> 
 		    <f:facet name="footer">		    
 
 	        </f:facet>        
-           </p:panel><br/>
+           </p:panel>
        
            <!-- Modal alerta constancias-->
 	<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -188,7 +185,6 @@
 	</div>               
 
                        
-           </div>
            </div>
            <h:inputHidden id="per" value="#{autos02.periodo}"/> 
            <h:inputHidden id="id" value="#{autos02.id}"/> 

@@ -6,13 +6,15 @@
     <property name="bidiLayoutOrientation">ltr</property>
     <property name="imageDPI">120</property>
     <parameters>
-        <scalar-parameter name="ANIO" id="3417">
-            <property name="hidden">false</property>
-            <text-property name="promptText">Indique el año</text-property>
+        <scalar-parameter name="FICHA" id="3420">
+            <property name="hidden">true</property>
             <property name="valueType">static</property>
             <property name="isRequired">true</property>
             <property name="dataType">string</property>
             <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">14512198</value>
+            </simple-property-list>
             <list-property name="selectionList"/>
             <property name="paramType">simple</property>
             <property name="controlType">text-box</property>
@@ -20,14 +22,15 @@
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
-        <scalar-parameter name="FICHA" id="3420">
-            <property name="hidden">true</property>
+        <scalar-parameter name="ANOIMP" id="3938">
+            <text-property name="promptText">Indique el año</text-property>
             <property name="valueType">static</property>
             <property name="isRequired">true</property>
             <property name="dataType">string</property>
             <property name="distinct">true</property>
             <list-property name="selectionList"/>
             <property name="paramType">simple</property>
+            <property name="concealValue">false</property>
             <property name="controlType">text-box</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
@@ -53,7 +56,7 @@
                 </ex-property>
             </list-property>
             <property name="odaDriverClass">oracle.jdbc.OracleDriver</property>
-            <property name="odaURL">jdbc:oracle:thin:@190.202.128.121:54752:spi</property>
+            <property name="odaURL">jdbc:oracle:thin:@192.168.1.45:1521:spi</property>
             <property name="odaUser">OPENNOMINA</property>
             <encrypted-property name="odaPassword" encryptionID="base64">T1BFTk5PTUlOQQ==</encrypted-property>
             <property name="odaJndiName">jdbc/opennomina</property>
@@ -76,7 +79,7 @@
                 </structure>
                 <structure>
                     <property name="name">param_2</property>
-                    <property name="paramName">ANIO</property>
+                    <property name="paramName">ANOIMP</property>
                     <property name="nativeName"></property>
                     <property name="dataType">string</property>
                     <property name="nativeDataType">0</property>
@@ -206,7 +209,7 @@ FROM VIEW_AUTOS10 IMP
 WHERE
 CIA_CODCIA = 'H1'
 AND TRIM(TRAB_FICTRA) = ?
-AND ANOIMP = ?]]></xml-property>
+AND to_char(ANOIMP) = ?]]></xml-property>
         </oda-data-set>
         <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="qry_3_varimp" id="3422">
             <list-property name="columnHints">
@@ -267,7 +270,7 @@ AND ANOIMP = ?]]></xml-property>
                 </structure>
                 <structure>
                     <property name="name">param_2</property>
-                    <property name="paramName">ANIO</property>
+                    <property name="paramName">ANOIMP</property>
                     <property name="nativeName"></property>
                     <property name="dataType">string</property>
                     <property name="nativeDataType">0</property>
@@ -367,7 +370,7 @@ FROM VIEW_AUTOS10A
 WHERE
 CIA_CODCIA = 'H1' 
 AND trim(TRAB_FICTRA) = ?
-AND ANOIMP = ?]]></xml-property>
+AND to_char(ANOIMP) = ?]]></xml-property>
             <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
 <model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
   <Version>2.0</Version>
@@ -522,7 +525,7 @@ AND ANOIMP = ?]]></xml-property>
                 </structure>
                 <structure>
                     <property name="name">param_2</property>
-                    <property name="paramName">ANIO</property>
+                    <property name="paramName">ANOIMP</property>
                     <property name="nativeName"></property>
                     <property name="dataType">string</property>
                     <property name="nativeDataType">0</property>
@@ -804,7 +807,7 @@ AND CIA.CDAD_CODCIU = CDAD.CODCIU(+)
 AND CIA.EDO_CODEDO = EDO.CODEDO(+)
 AND TRAB.CIA_CODCIA = 'H1'
 AND TRIM(TRAB.FICTRA) = ?
-AND ANOIMP = ?]]></xml-property>
+AND to_char(ANOIMP) = ?]]></xml-property>
         </oda-data-set>
     </data-sets>
     <page-setup>
@@ -826,13 +829,13 @@ AND ANOIMP = ?]]></xml-property>
             <list-property name="boundDataColumns">
                 <structure>
                     <property name="name">anoini</property>
-                    <expression name="expression" type="javascript">params["ANIO"].value</expression>
+                    <expression name="expression" type="javascript">params["ANOIMP"].value</expression>
                     <property name="dataType">string</property>
                     <property name="allowExport">true</property>
                 </structure>
                 <structure>
                     <property name="name">anofin</property>
-                    <expression name="expression" type="javascript">params["ANIO"].value</expression>
+                    <expression name="expression" type="javascript">params["ANOIMP"].value</expression>
                     <property name="dataType">string</property>
                     <property name="allowExport">true</property>
                 </structure>
@@ -857,6 +860,8 @@ AND ANOIMP = ?]]></xml-property>
                             <property name="fontSize">9pt</property>
                             <cell id="3666">
                                 <label id="3622">
+                                    <property name="fontWeight">normal</property>
+                                    <property name="color">#000000</property>
                                     <text-property name="text">C O M P R O B A N T E    D E    R E T E N C I O N </text-property>
                                 </label>
                             </cell>
@@ -1105,7 +1110,7 @@ AND ANOIMP = ?]]></xml-property>
                             <cell id="3751">
                                 <property name="colSpan">2</property>
                                 <property name="rowSpan">1</property>
-                                <data id="3865">
+                                <data id="3929">
                                     <property name="dataSet">qry_1_datgen</property>
                                     <list-property name="boundDataColumns">
                                         <structure>
@@ -1121,7 +1126,7 @@ AND ANOIMP = ?]]></xml-property>
                             <cell id="3753"/>
                             <cell id="3754"/>
                             <cell id="3755">
-                                <data id="3862">
+                                <data id="3930">
                                     <property name="dataSet">qry_1_datgen</property>
                                     <list-property name="boundDataColumns">
                                         <structure>
@@ -1135,7 +1140,7 @@ AND ANOIMP = ?]]></xml-property>
                                 </data>
                             </cell>
                             <cell id="3756">
-                                <data id="3863">
+                                <data id="3931">
                                     <property name="dataSet">qry_1_datgen</property>
                                     <list-property name="boundDataColumns">
                                         <structure>
@@ -1149,9 +1154,7 @@ AND ANOIMP = ?]]></xml-property>
                                 </data>
                             </cell>
                             <cell id="3757">
-                                <data id="3864">
-                                    <property name="paddingRight">15pt</property>
-                                    <property name="textAlign">right</property>
+                                <data id="3932">
                                     <property name="dataSet">qry_1_datgen</property>
                                     <list-property name="boundDataColumns">
                                         <structure>
@@ -1229,7 +1232,7 @@ AND ANOIMP = ?]]></xml-property>
                             <cell id="3775">
                                 <property name="colSpan">3</property>
                                 <property name="rowSpan">1</property>
-                                <data id="3866">
+                                <data id="3933">
                                     <property name="dataSet">qry_1_datgen</property>
                                     <list-property name="boundDataColumns">
                                         <structure>
@@ -1260,7 +1263,7 @@ AND ANOIMP = ?]]></xml-property>
                             <cell id="3780">
                                 <property name="colSpan">2</property>
                                 <property name="rowSpan">1</property>
-                                <data id="3860">
+                                <data id="3935">
                                     <property name="dataSet">qry_1_datgen</property>
                                     <list-property name="boundDataColumns">
                                         <structure>
@@ -1301,7 +1304,7 @@ AND ANOIMP = ?]]></xml-property>
                                 <property name="colSpan">3</property>
                                 <property name="rowSpan">1</property>
                                 <property name="paddingLeft">20pt</property>
-                                <data id="3877">
+                                <data id="3934">
                                     <property name="dataSet">qry_1_datgen</property>
                                     <list-property name="boundDataColumns">
                                         <structure>
@@ -1316,7 +1319,7 @@ AND ANOIMP = ?]]></xml-property>
                             </cell>
                             <cell id="3794"/>
                             <cell id="3795">
-                                <data id="3879">
+                                <data id="3936">
                                     <property name="dataSet">qry_1_datgen</property>
                                     <list-property name="boundDataColumns">
                                         <structure>

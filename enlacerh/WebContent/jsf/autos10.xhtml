@@ -70,25 +70,23 @@
 			    
 			    <p:panel id="panelBusqueda" style="white-space: normal;" header="#{msg.autoimptit}" toggleable="false"  toggleSpeed="500" >
                                
-	                <h:panelGrid  columns="8"  >	         
-				    
-				    <p:inputText id="anoimp" placeholder="#{msg.autoimpAnoimp}" style="height: 45px;" styleClass="form-control" maxlength="4" value="#{autos10.anoimp}"/>  
-					
-					&nbsp; 
-			        <p:commandButton id="btnBus" icon="fa fa-search" title="#{msg.htmlb}" styleClass="botonUn" accesskey="b" update="tbResult, growl" value="#{msg.html49}" />
-	                
-	                <p:commandButton icon="fa fa-refresh" styleClass="botonUn" update="tbResult, growl, panelBusqueda" process="@this" title="#{msg.htmlr}"    accesskey="l" >  
-	                <p:resetInput target="panelBusqueda" />
-	                </p:commandButton> 
-	                
-	                <!-- *** IMPRIMIR PLANILLA DE ARC *** -->
-					&nbsp; 
-					<p:commandButton  title="#{msg.html56}" value="#{msg.html56}" icon="fa fa-print" styleClass="botonPag" accesskey="p"
-					onclick="imprimirPlanilla('#{autos10.pcodcia}AUTOIMP', '#{autos10.pfictra}');" />&nbsp;
-				     
-			        </h:panelGrid> 
+				<h:panelGrid  columns="9"  >	         
+				
+				<p:inputText id="anoimp" placeholder="#{msg.autoimpAnoimp}" style="height: 35px;width: 60px"  styleClass="form-control" maxlength="4" value="#{autos10.anoimp}"/>  
+				&nbsp; 
+				      <p:commandButton id="btnBus" icon="fa fa-search" title="#{msg.htmlb}" style="height: 35px;" styleClass="botonUn" accesskey="b" update="tbResult, growl" value="#{msg.html49}" />
+				&nbsp;
+				<p:commandButton icon="fa fa-refresh" styleClass="botonUn" style="height: 35px;" update="tbResult, growl, panelBusqueda" process="@this" title="#{msg.htmlr}"    accesskey="l" >  
+				<p:resetInput target="panelBusqueda" />
+				</p:commandButton> 
+				<!-- *** IMPRIMIR PLANILLA DE ARC *** -->
+				&nbsp; 
+				<p:commandButton  title="#{msg.html57}" value="#{msg.html57}" style="height: 35px;" icon="fa fa-print" styleClass="botonPag" accesskey="p"
+				onclick="imprimirPlanillaARC('#{autos10.pcodcia}AUTOIMP', '#{autos10.pfictra}');" />&nbsp;
+				
+				</h:panelGrid> 
 
-                </p:panel><br/>
+                </p:panel>
                     
                         
 		   	  		                  <!-- Modal Indice ciclo 1-->

@@ -43,3 +43,9 @@ function imprimirRecibo(rep, ficha, anio, mes){
 
 	}
 
+function imprimirSolicitud(rep, ficha){
+	  // Si el mensaje que retorna es acceso
+		window.open('../jsf/reportesauto.jsp?reporte='+rep+'.rptdesign&ficha='+ficha);
+
+	}
+

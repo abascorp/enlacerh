@@ -34,7 +34,7 @@ of those sections to manage the look and feel of the site.
 .intro-section {
 	/*
 	background: url(http://lorempixel.com/1500/700/city/) no-repeat center center fixed; */
-	background: #17baef;
+	background: #d5d5d5;
 	min-height: 100%;
     height: auto;
     padding-top: 120px;
@@ -58,7 +58,7 @@ of those sections to manage the look and feel of the site.
     height: auto;
     padding-top: 90px;
     font-size: 12px;
-    background: #17baef;
+    background: #d5d5d5;
 }
 
 .acerca-section {
@@ -70,7 +70,7 @@ of those sections to manage the look and feel of the site.
 	min-height: 20%;
     height: auto;
     padding-top: 30px;
-    background: #17baef;
+    background: #d5d5d5;
 }
 
 .contact-section .social-icons a {

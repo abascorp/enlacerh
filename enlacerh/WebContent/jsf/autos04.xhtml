@@ -40,64 +40,87 @@
 	<h:form id="formAutoSPrestacion">
 	          <div id="botones">              
 				<p:toolbar>  
-                 <f:facet name="left">  
-                 <p:commandButton id="btnBus"  title="#{msg.htmlbuscar}" styleClass="botonUn" accesskey="b" update="tbResult, growl"
-                  value="#{msg.html49}"  icon="fa fa-search">           
-                 </p:commandButton>
-                 <p:commandButton icon="fa fa-refresh" styleClass="botonUn" update="tbResult, growl, panelBusqueda" process="@this"  
-                title="#{msg.htmlr}"    accesskey="l" >  
-                 <p:resetInput target="panelBusqueda" /> 
-                 </p:commandButton>                       
-                 </f:facet>   
+                
+                <f:facet name="left">  
+                &nbsp;
+                <h:outputLabel value="#{autos02.nombre1}&nbsp;#{autos02.apell1}" styleClass="tituloCia"/>
+			    &nbsp;
+			    <p:commandLink icon="ui-icon-newwin" styleClass="btn btn-success"  immediate="true" title="#{msg.autonomDatos}"
+	            onclick="$('#myModal').modal('show')"  >
+	            <i class="fa fa-street-view fa-2x"></i>
+	            </p:commandLink> 
+                </f:facet>   
+                
                 </p:toolbar>  
+				
 				</div><br/>
 	
-	             <!-- Mensaje e imagen --> 		
-			      <div id="encabezados">   
-				  <p:growl globalOnly="true" id="growl" life="30000"/>
-				  <ui:include src="common/loader.xhtml"/>
-				  </div> 
+	            <!-- Mensaje e imagen --> 		
+			    <div id="encabezados">   
+				<p:growl globalOnly="true" id="growl" life="30000"/>
+				<ui:include src="common/loader.xhtml"/>
+				</div> 
 				
-			<!-- Panel -->
-			 <div class="panel panel-default" style="margin-top: 15px; margin-bottom: 10px">
-		     <div class="panel-body">
-			<p:panel id="panelBusqueda" style="white-space: normal;" header="#{msg.autopresttit}" toggleable="true"  toggleSpeed="500" >
-            <h:panelGrid  columns="1"  >	      
-			     <p:inputText id="anio" placeholder="#{msg.autoprestAnio}"  maxlength="4" style="height: 45px;" styleClass="form-control"  value="#{autos04.anio}"/>         
-			     <h:selectOneMenu id="mes" value="#{autos04.mes}" effect="highlight">
-			     <f:selectItem itemValue="#{null}" itemLabel="#{msg.autos02Opc0}" />
-                 <f:selectItems  value="#{listBean.meses}"/>
-                 </h:selectOneMenu>
-		    </h:panelGrid>  
+				<!-- Panel -->
+				<div class="panel panel-default" style="margin-top: 15px; margin-bottom: 10px">
+				
+				<p:panel id="panelBusqueda" style="white-space: normal;" header="#{msg.autopresttit}" toggleable="false"  toggleSpeed="500" >
+				<h:panelGrid  columns="12"  >	      
+				<p:inputText id="anio" placeholder="#{msg.autoprestAnio}"  maxlength="4" style="height: 35px;width: 60px" styleClass="form-control"  value="#{autos04.anio}"/>         
+				&nbsp;
+				<h:selectOneMenu id="mes" value="#{autos04.mes}" style="height: 35px;" effect="highlight">
+				<f:selectItem itemValue="#{null}" itemLabel="#{msg.autos02Opc0}" />
+				<f:selectItems  value="#{listBean.meses}"/>			
+				</h:selectOneMenu>
+				  
+		        
+		        &nbsp;
+				<p:commandButton id="btnBus"  title="#{msg.htmlbuscar}" style="height: 35px;" styleClass="botonUn" accesskey="b" update="tbResult, growl"
+				value="#{msg.html49}"  icon="fa fa-search">           
+				</p:commandButton>
+				
+				&nbsp;
+				<p:commandButton icon="fa fa-refresh" styleClass="botonUn" style="height: 35px;" update="tbResult, growl, panelBusqueda" process="@this"  
+				title="#{msg.htmlr}"    accesskey="l" >  
+				<p:resetInput target="panelBusqueda" /> 
+				</p:commandButton> 
+				
+				&nbsp;
+				<p:commandButton icon="fa fa-print" title="#{msg.html10}" style="height: 35px;" immediate="true"  styleClass="botonPag" accesskey="p" value="#{msg.html50}"
+		        onclick="imprimirRecibo('#{autos04.pcodcia}AUTOPREST','#{autos04.pfictra}','#{autos04.anio}','#{autos04.mes}');">
+		        </p:commandButton>
+		        
+		        &nbsp;
+		        <p:commandButton  title="#{msg.html10}" style="height: 35px;" immediate="true" icon="fa fa-print" styleClass="botonPag" accesskey="p" value="#{msg.html56}"
+		        onclick="imprimirSolicitud('#{autos04.pcodcia}AUTOPRE_SOLICITUD','#{autos04.pfictra}');">
+		        </p:commandButton>
+		    
+		     </h:panelGrid>
 		     <f:facet name="footer">		    
-		    <h:outputLabel value="#{autos02.nombre1}&nbsp;#{autos02.apell1}" styleClass="tituloCia"/>
-		    &nbsp;
-		    <p:commandLink icon="ui-icon-newwin" styleClass="btn btn-info"  immediate="true" title="#{msg.autonomDatos}"
-            onclick="$('#myModal').modal('show')"  >
-            <i class="fa fa-bars fa-2x"></i>
-            </p:commandLink>
-	        </f:facet> 
-           </p:panel><br/>
+
+	         </f:facet> 
+           
+           </p:panel>
+           
            <p:panel>
-           <div class="container-fluid">     
-	       <div class="row">
-	       <div class="col-md-3" >#{msg.autoprestEncabCant}</div>
-	       <div class="col-md-3" style="font-weight: bold;">#{autos04.cantidad}</div>
-	       <div class="col-md-3" >#{msg.autoprestEncabMonto}</div>
-	       <div class="col-md-3" style="font-weight: bold;">#{autos04.monto}</div>
-	       <div class="col-md-3" >#{msg.autoprestEncabAnt}</div>
-	       <div class="col-md-3" style="font-weight: bold;" >#{autos04.anticipos}</div>
-	       <div class="col-md-3" >#{msg.autoprestEncabDispo}</div>
-	       <div class="col-md-3" >
-	       <p:commandButton  title="#{msg.html10}" 
-	       immediate="true" icon="fa fa-print" styleClass="botonPag" 
-	       accesskey="p"
-	       value="#{msg.html50}"
-	       onclick="imprimirRecibo('#{autos04.pcodcia}AUTOPREST','#{autos04.pfictra}','#{autos04.anio}','#{autos04.mes}');"/>
+	           <div class="container-fluid">     
+		       <div class="row">
+		       
+		       <div class="col-md-3" >#{msg.autoprestEncabCant}</div>
+		       <div class="col-md-3" style="text-align:right">#{autos04.cantidad}</div>
+		       
+		       <div class="col-md-3" >#{msg.autoprestEncabMonto}</div>
+		       <div class="col-md-3" style="text-align:right">#{autos04.monto}</div>
+		       
+		       <div class="col-md-3" >#{msg.autoprestEncabAnt}</div>
+		       <div class="col-md-3" style="text-align:right">#{autos04.anticipos}</div>
+		       
+		       <div class="col-md-3" >#{msg.autoprestEncabDispo}</div>
+		       <div class="col-md-3" style="text-align:right">#{autos04.disponible}</div>
+		       
 	       </div>
 	       </div>
-	        </div>
-	        </p:panel>
+	       </p:panel>
            
      
            
@@ -161,7 +184,6 @@
 	 </div>               
            
            
-            </div>
            </div>
            
 
