@@ -3,6 +3,6 @@
  
 <!-- URL de verificación-->
    <load-url>
-    <load-url-verificacion>http://opennomina.ecorrespondencia.com/opennomina/validar_cuenta.xhtml</load-url-verificacion>
+    <load-url-verificacion>http://enlacerh.ecorrespondencia.com/enlacerh/validar_cuenta.xhtml</load-url-verificacion>
   </load-url>           
 </jlic-web-app>

@@ -21,7 +21,7 @@ To change this template, choose Tools | Templates
 and open the template in the editor.
 -->
 <%@page contentType="text/html" pageEncoding="UTF-8" session="true"%>
-<jsp:useBean id="bd" class="org.opennomina.util.Utils" scope="session"/>
+<jsp:useBean id="bd" class="org.enlacerh.util.Utils" scope="session"/>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
     "http://www.w3.org/TR/html4/loose.dtd">
 

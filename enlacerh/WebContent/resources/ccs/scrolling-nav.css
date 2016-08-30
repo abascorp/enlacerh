@@ -32,13 +32,13 @@ of those sections to manage the look and feel of the site.
 * */
 
 .intro-section {
-	/*
-	background: url(http://lorempixel.com/1500/700/city/) no-repeat center center fixed; */
+	
+	/*background: url("resources/img/enlacerh_fondo.jpg");*/ 
 	background: #d5d5d5;
 	min-height: 100%;
     height: auto;
     padding-top: 120px;
-    font-size: 12px;
+    font-size: 18px;
 
 }
 

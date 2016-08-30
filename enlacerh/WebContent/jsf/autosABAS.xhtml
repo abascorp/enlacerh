@@ -1,0 +1,176 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!-- 
+     Copyright (C) 2011  ANDRES DOMINGUEZ
+
+    Este programa es software libre: usted puede redistribuirlo y/o modificarlo 
+    bajo los tÃ©rminos de la Licencia PÃºblica General GNU publicada 
+    por la FundaciÃ³n para el Software Libre, ya sea la versiÃ³n 3 
+    de la Licencia, o (a su elecciÃ³n) cualquier versiÃ³n posterior.
+
+    Este programa se distribuye con la esperanza de que sea Ãºtil, pero 
+    SIN GARANTÃ�A ALGUNA; ni siquiera la garantÃ­a implÃ­cita 
+    MERCANTIL o de APTITUD PARA UN PROPÃ“SITO DETERMINADO. 
+    Consulte los detalles de la Licencia PÃºblica General GNU para obtener 
+    una informaciÃ³n mÃ¡s detallada. 
+
+    DeberÃ­a haber recibido una copia de la Licencia PÃºblica General GNU 
+    junto a este programa. 
+    En caso contrario, consulte <http://www.gnu.org/licenses/>.
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<script src="../resources/js/autos01.js" type="text/javascript"></script>
+<ui:include src="common/cabeceras.xhtml" />
+<ui:include src="common/timeout.xhtml" />
+<h:body>
+<f:view>
+ <!-- Top-->
+	<ui:include src="common/top.xhtml" />
+   <div id="wrapper">
+	<!-- MenÃº-->
+	<ui:include src="common/menu.xhtml" />
+	
+
+	 <div class="container-fluid" id="containerF">
+	<h:form id="formAutos01" prependId="false" >
+				
+<p:megaMenu orientation="#{megaMenuView.orientation}" style="margin-top:20px">
+    <p:submenu label="TV" icon="ui-icon-check">
+        <p:column>
+            <p:submenu label="TV.1">
+                <p:menuitem value="TV.1.1" url="#" />
+                <p:menuitem value="TV.1.2" url="#" />
+            </p:submenu>
+            <p:submenu label="TV.2">
+                <p:menuitem value="TV.2.1" url="#" />
+                <p:menuitem value="TV.2.2" url="#" />
+                <p:menuitem value="TV.2.3" url="#" />
+            </p:submenu>
+        </p:column>
+ 
+        <p:column>
+            <p:submenu label="TV.4">
+                <p:menuitem value="TV.4.1" url="#" />
+                <p:menuitem value="TV.4.2" url="#" />
+            </p:submenu>
+            <p:submenu label="TV.5">
+                <p:menuitem value="TV.5.1" url="#" />
+                <p:menuitem value="TV.5.2" url="#" />
+                <p:menuitem value="TV.5.3" url="#" />
+            </p:submenu>
+        </p:column>
+ 
+        <p:column>
+            <strong>Image</strong>
+            <p:graphicImage name="/demo/images/nature/nature1.jpg" width="200"/>
+        </p:column>
+    </p:submenu>
+ 
+    <p:submenu label="Sports" icon="ui-icon-document">
+ 
+        <p:column>
+            <p:submenu label="Sports.1">
+                <p:menuitem value="Sports.1.1" url="#" />
+                <p:menuitem value="Sports.1.2" url="#" />
+            </p:submenu>
+            <p:submenu label="Sports.2">
+                <p:menuitem value="Sports.2.1" url="#" />
+                <p:menuitem value="Sports.2.2" url="#" />
+                <p:menuitem value="Sports.2.3" url="#" />
+            </p:submenu>
+        </p:column>
+ 
+        <p:column>
+            <p:submenu label="Sports.4">
+                <p:menuitem value="Sports.4.1" url="#" />
+                <p:menuitem value="Sports.4.2" url="#" />
+            </p:submenu>
+            <p:submenu label="Sports.5">
+                <p:menuitem value="Sports.5.1" url="#" />
+                <p:menuitem value="Sports.5.2" url="#" />
+                <p:menuitem value="Sports.5.3" url="#" />
+            </p:submenu>
+        </p:column>
+        <p:column>
+            <p:submenu label="Sports.7">
+                <p:menuitem value="Sports.7.1" url="#" />
+                <p:menuitem value="Sports.7.2" url="#" />
+            </p:submenu>
+        </p:column>
+    </p:submenu>
+ 
+    <p:submenu label="Entertainment" icon="ui-icon-pencil">
+        <p:column>
+            <p:submenu label="Entertainment.1">
+                <p:menuitem value="Entertainment.1.1" url="#" />
+                <p:menuitem value="Entertainment.1.2" url="#" />
+            </p:submenu>
+            <p:submenu label="Entertainment.2">
+                <p:menuitem value="Entertainment.2.1" url="#" />
+                <p:menuitem value="Entertainment.2.2" url="#" />
+                <p:menuitem value="Entertainment.2.3" url="#" />
+            </p:submenu>
+        </p:column>
+ 
+        <p:column>
+            <p:submenu label="Entertainment.4" icon="ui-icon-help">
+                <p:menuitem value="Entertainment.4.1" url="#" />
+                <p:menuitem value="Entertainment.4.2" url="#" />
+            </p:submenu>
+            <p:submenu label="Entertainment.5">
+                <p:menuitem value="Entertainment.5.1" url="#" />
+                <p:menuitem value="Entertainment.5.2" url="#" />
+                <p:menuitem value="Entertainment.5.3" url="#" />
+            </p:submenu>
+        </p:column>
+    </p:submenu>
+ 
+    <p:submenu label="Tech" icon="ui-icon-contact">
+        <p:column>
+            <p:submenu label="Tech.1">
+                <p:menuitem value="Tech.1.1" url="#" />
+                <p:menuitem value="Tech.1.2" url="#" />
+            </p:submenu>
+            <p:submenu label="Tech.2">
+                <p:menuitem value="Tech.2.1" url="#" />
+                <p:menuitem value="Tech.2.2" url="#" />
+                <p:menuitem value="Tech.2.3" url="#" />
+            </p:submenu>
+        </p:column>
+ 
+        <p:column>
+            <p:submenu label="Tech.4">
+                <p:menuitem value="Tech.4.1" url="#" />
+                <p:menuitem value="Tech.4.2" url="#" />
+            </p:submenu>
+        </p:column>
+    </p:submenu>
+ 
+    <p:menuitem value="Quit" url="http://www.primefaces.org" icon="ui-icon-close" />
+</p:megaMenu>
+				
+		<p:layout style="min-width:400px;min-height:200px;">
+		    <p:layoutUnit position="west" resizable="true" size="100" minSize="40" maxSize="200">
+		        West
+		    </p:layoutUnit>
+		 
+		    <p:layoutUnit position="center">
+		        Center
+		        
+		    </p:layoutUnit>
+		</p:layout>
+ 
+       </h:form>
+   </div>
+    
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+   </f:view>
+</h:body>
+</html>

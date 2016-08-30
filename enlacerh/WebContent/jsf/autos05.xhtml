@@ -78,7 +78,11 @@
 			<p:commandButton icon="fa fa-refresh" styleClass="botonUn" style="height: 35px;" update="tbResult, growl, panelBusqueda" process="@this"  
 			title="#{msg.htmlr}"    accesskey="l" >  
 			<p:resetInput target="panelBusqueda" /> 
-			</p:commandButton>                  
+			</p:commandButton>    
+			&nbsp;
+			<!-- *** IMPRIMIR DETALLE DE INTERESES *** -->
+			<p:commandButton  title="#{msg.html58a}" value="#{msg.html58a}" icon="fa fa-print" styleClass="botonUn" accesskey="p"
+			onclick="imprimirDetalleInt('#{autos04.pcodcia}AUTOINT', '#{autos02.pfictra}');" />&nbsp;              
                  
 
 		    </h:panelGrid>   

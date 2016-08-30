@@ -56,8 +56,12 @@ function odet(){
 
 function imprimirRecibo(rep, ficha, id){
  window.open('../jsf/reportesauto.jsp?reporte='+rep+'.rptdesign&anio=' + vganio + "&mes=" + vgmes + "&periodo=" + vgper + "&ficha=" + ficha + "&id=" + id);
-  
 }
+
+function imprimirPermiso(rep, ficha){
+	 window.open('../jsf/reportesauto.jsp?reporte='+rep+'.rptdesign&ficha=' + ficha);
+	}
+
 
 function imprimirConst(rep){
 	

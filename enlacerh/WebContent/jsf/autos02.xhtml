@@ -62,10 +62,10 @@
 			    </div> 
 				  
 				 <!-- Panel -->
-			     <div class="panel panel-default" style="margin-top: 15px; margin-bottom: 5px">
+			     <div class="panel panel-default" style="margin-top: 15px; margin-bottom: -20px">
 		       
 		         <p:panel id="panelBusqueda" style="white-space: normal;" header="#{msg.autonomtit}" toggleable="false"  toggleSpeed="500" >  	     
-                 <h:panelGrid   columns="9"  >	
+                 <h:panelGrid   columns="11"  >	
                      
                  <p:inputText id="anio" placeholder="#{msg.autoonomAnio}" maxlength="4" value="#{autos02.anio}"  style="height: 35px;width: 60px" styleClass="form-control" converter="javax.faces.Integer" converterMessage="#{utils.getMessage('isInt')}" required="true"  requiredMessage="#{utils.getMessage('html43')}"/>  
 			     <p:message for="anio"/>
@@ -83,8 +83,12 @@
                  <p:commandButton icon="fa fa-refresh" styleClass="botonUn" style="height: 35px;" update="tbResult, panelBusqueda, growl" process="@this"  
                  title="#{msg.htmlr}"    accesskey="l">  
                  <p:resetInput target="panelBusqueda" /> 
-                 </p:commandButton>   
-	           
+                 </p:commandButton> 
+                 &nbsp;
+				 <!-- *** IMPRIMIR SOLICITUD DE PERMISO *** -->
+				 <p:commandButton  title="#{msg.html50b}" value="#{msg.html50b}" icon="fa fa-print" styleClass="botonUn" accesskey="p"
+				 onclick="imprimirPermiso('AUTOPERMISO', '#{autos02.pfictra}');" />&nbsp;
+                 
 	            <!-- OPCION DESHABILITADA A PETICION DEL CLIENTE 
 	            <h:selectOneMenu value="#{autos02.constancia}"  id="tipconst" rendered="#{smnubean.autoconst}" >
 	            <f:selectItems value="#{listBean.opcconst}"/>
@@ -254,9 +258,8 @@
 			</p:commandLink>&#160;		
 			
 			<!-- *** IMPRIMIR RECIBO *** OPCION DESHABILITADA A PETICION DEL CLIENTE -->
-			<p:commandButton  title="#{msg.html50}" value="#{msg.html50}" icon="fa fa-print" styleClass="botonPag" accesskey="p"
+			<p:commandButton  title="#{msg.html50a}" value="#{msg.html50a}" icon="fa fa-print" styleClass="botonPag" accesskey="p"
 			onclick="imprimirRecibo('#{autos02.pcodcia}AUTONOM', '#{autos02.pfictra}', '#{autos02.id}');" />&nbsp;	
-			
 			
 			<!-- *** IMPRIMIR CONSTANCIA *** OPCION DESHABILITADA A PETICION DEL CLIENTE
 			<p:commandButton  title="#{msg.html52}"  icon="fa fa-envelope" 

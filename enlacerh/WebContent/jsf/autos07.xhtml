@@ -62,7 +62,7 @@
 				<!-- Panel -->
 			 <div class="panel panel-default" style="margin-top: 15px; margin-bottom: 10px">
 			<p:panel id="panelBusqueda" style="white-space: normal;" header="#{msg.autoutiltit}" toggleable="true"  toggleSpeed="500" >
-            <h:panelGrid  columns="9"  >	         
+            <h:panelGrid  columns="11"  >	         
 			     <p:inputText id="anio" placeholder="#{msg.autoutilAnio}" style="height: 35px;width: 60px" styleClass="form-control" maxlength="4" value="#{autos07.anio}"/>  
 			     &nbsp;
 			     <h:selectOneMenu id="mes" style="height: 35px" value="#{autos07.mes}" styleClass="listPag" effect="highlight">
@@ -87,15 +87,19 @@
 		     <f:facet name="footer">
 
 	        </f:facet>          
-           </p:panel>
-           <p:panel>
-           <div class="container-fluid">     
-	       <div class="row">
-	       <div class="col-md-3" >#{msg.autoutilSaldo}</div>
-	       <div class="col-md-3" style="font-weight: bold;">#{autos07.utidis} </div>
-	       </div>
-	        </div>
-	        </p:panel>           
+            </p:panel>
+		 	 <p:panel>
+	 			 <div class="container-fluid">     
+	 				 <div class="row">
+						 <div class="col-md-3" >#{msg.autoutilSaldo}</div>
+						 <div class="col-md-3" style="font-weight: bold;">#{autos07.utidis} </div>
+						 <div class="col-md-3" >#{msg.autoutilFecmov}</div>
+						 <div class="col-md-3" style="font-weight: bold;">#{autos07.fecant} </div>
+						 <div class="col-md-3" >#{msg.autoutilSaldot}</div>
+						 <div class="col-md-3" style="font-weight: bold;">#{autos07.saldot} </div>
+					 </div>
+				 </div>
+			 </p:panel>           
                         
 		   	  		                  <!-- Modal Indice ciclo 1-->
 	<div class="modal fade modal-wide" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

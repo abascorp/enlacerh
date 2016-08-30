@@ -10,7 +10,7 @@
 -----------------------------------------------------------------------------%>
 <%@ page contentType="text/html; charset=utf-8" %>
 <%@ page session="false" buffer="none" %>
-<jsp:useBean id="BirtResources" class="org.opennomina.util.BirtResources" scope="request"/>
+<jsp:useBean id="BirtResources" class="org.enlacerh.util.BirtResources" scope="request"/>
 <%-----------------------------------------------------------------------------
 	Progress page
 -----------------------------------------------------------------------------%>

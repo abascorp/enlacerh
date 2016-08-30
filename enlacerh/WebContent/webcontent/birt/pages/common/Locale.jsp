@@ -1,4 +1,4 @@
-<jsp:useBean id="BirtResources" class="org.opennomina.util.BirtResources" scope="request"/>
+<jsp:useBean id="BirtResources" class="org.enlacerh.util.BirtResources" scope="request"/>
 <%-- Map Java resource messages to Javascript constants --%>
 <script type="text/javascript">
 // <![CDATA[	

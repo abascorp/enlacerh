@@ -45,3 +45,8 @@ function imprimirRecibo(rep, ficha, anio, mes){
 				+ "&mes=" + mes);
 	}
 
+function imprimirDetalleInt(rep, ficha, anio, mes){
+	  // Si el mensaje que retorna es acceso
+		window.open('../jsf/reportesauto.jsp?reporte='+rep+'.rptdesign&ficha=' + rTrim(ficha));
+	}
+

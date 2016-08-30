@@ -23,7 +23,7 @@
 	Expected java beans
 -----------------------------------------------------------------------------%>
 <jsp:useBean id="fragment" type="org.eclipse.birt.report.presentation.aggregation.IFragment" scope="request" />
-<jsp:useBean id="BirtResources" class="org.opennomina.util.BirtResources" scope="request"/>
+<jsp:useBean id="BirtResources" class="org.enlacerh.util.BirtResources" scope="request"/>
 <SCRIPT LANGUAGE="javascript">var index = 0;</SCRIPT>
 <%
 	boolean enable = ParameterAccessor.isSupportedPrintOnServer;

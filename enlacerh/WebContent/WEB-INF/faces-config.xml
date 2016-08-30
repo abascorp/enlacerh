@@ -7,6 +7,6 @@
     version="2.0">
 
 <lifecycle>
-	<phase-listener id="nocache">org.opennomina.util.CacheControlPhaseListener</phase-listener>
+	<phase-listener id="nocache">org.enlacerh.util.CacheControlPhaseListener</phase-listener>
 </lifecycle>
 </faces-config>

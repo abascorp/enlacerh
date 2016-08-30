@@ -18,7 +18,7 @@
 	Expected java beans
 -----------------------------------------------------------------------------%>
 <jsp:useBean id="error" type="java.lang.Exception" scope="request" />
-<jsp:useBean id="BirtResources" class="org.opennomina.util.BirtResources" scope="request"/>
+<jsp:useBean id="BirtResources" class="org.enlacerh.util.BirtResources" scope="request"/>
 <%-----------------------------------------------------------------------------
 	Error content
 -----------------------------------------------------------------------------%>

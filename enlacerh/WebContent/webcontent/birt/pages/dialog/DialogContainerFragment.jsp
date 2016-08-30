@@ -14,14 +14,14 @@
 				 org.eclipse.birt.report.context.BaseAttributeBean,
 				 org.eclipse.birt.report.IBirtConstants,
 				 org.eclipse.birt.report.utility.ParameterAccessor,
-                                 org.opennomina.util.session" %>
+                                 org.enlacerh.util.session" %>
 
 <%-----------------------------------------------------------------------------
 	Expected java beans
 -----------------------------------------------------------------------------%>
 <jsp:useBean id="fragment" type="org.eclipse.birt.report.presentation.aggregation.IFragment" scope="request" />
 <jsp:useBean id="attributeBean" type="org.eclipse.birt.report.context.BaseAttributeBean" scope="request" />
-<jsp:useBean id="BirtResources" class="org.opennomina.util.BirtResources" scope="request"/>
+<jsp:useBean id="BirtResources" class="org.enlacerh.util.BirtResources" scope="request"/>
 <%-----------------------------------------------------------------------------
 	Dialog container fragment, shared by all standard dialogs.
 -----------------------------------------------------------------------------%>
